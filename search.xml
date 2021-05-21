@@ -4,9 +4,36 @@
   
     
     <entry>
+      <title>内存分区模型</title>
+      <link href="2021/05/21/%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/"/>
+      <url>2021/05/21/%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="内存分区模型"><a href="#内存分区模型" class="headerlink" title="内存分区模型"></a>内存分区模型</h1><p>目前网络上主要有两种内存分区方法：</p><h2 id="First"><a href="#First" class="headerlink" title="First"></a>First</h2><p>C++程序在执行时，将内存大方向分为四个区：</p><ul><li>代码区：存放函数体的二进制代码，由操作系统进行管理。<font color=blue>(共享、只读)</font></li><li>全局区：存放全局变量和静态变量以及常量。<font color=blue>（该区数据在程序结束后由操作系统释放）</font></li><li>栈区：由编译器自动分配释放，存放函数的参数值，局部变量等。<font color=blue>（注意函数不要返回局部变量的地址 ）</font></li><li>堆区：由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。<font color=blue>（可以把函数返回的地址保存住）</font></li></ul><h2 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h2><p>分为五区：</p><ul><li>栈区：</li><li>堆区：</li><li>自由存储区：</li><li>全局区/静态区：</li><li>常量存储区：</li></ul><p><strong>内存四区的意义：不同区域存放的数据，赋予不同的生命周期，给我们更大的灵活性来编程。</strong></p><p><font color=red><em><strong>未完待续…</strong></em></font></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 内存分区 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>const小结</title>
-      <link href="2021/05/16/const%E5%B0%8F%E7%BB%93-1/"/>
-      <url>2021/05/16/const%E5%B0%8F%E7%BB%93-1/</url>
+      <link href="2021/05/16/const%E5%B0%8F%E7%BB%93/"/>
+      <url>2021/05/16/const%E5%B0%8F%E7%BB%93/</url>
       
         <content type="html"><![CDATA[<h1 id="const-分类"><a href="#const-分类" class="headerlink" title="const 分类"></a>const 分类</h1><h3 id="顶层const："><a href="#顶层const：" class="headerlink" title="顶层const："></a>顶层const：</h3><ul><li>顶层const可以表示任意的对象是常量，例如常量指针，指针本身为常量。<font color=#FF0000>顶层const作用于对象本身。</font></li></ul><h3 id="底层const："><a href="#底层const：" class="headerlink" title="底层const："></a>底层const：</h3><ul><li>底层const与指针和引用等复合类型部分有关，例如指针所指对象是常量。</li></ul><p><strong>Eg:</strong></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> p1 = &amp;i;        <span class="comment">// 顶层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> c1 = <span class="number">42</span>;         <span class="comment">// 顶层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p2 = &amp;c1;       <span class="comment">// 底层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p3 = p2; <span class="comment">// 左边底层， 右边顶层</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r2 = <span class="number">42</span>;        <span class="comment">// 允许为一个常量引用绑定非常量的对象、字面值、甚至是个一般表达式</span></span><br></pre></td></tr></table></figure><h1 id="const-用法"><a href="#const-用法" class="headerlink" title="const 用法"></a>const 用法</h1><ul><li><p>const修饰成员变量，定义成const常量，相较于宏常量，可进行类型检查，节省内存空间，提高了效率；const成员变量要进行初始化。</p></li><li><p>const修饰函数参数，使得传递过来的函数参数的值不能改变。</p></li><li><p>const修饰成员函数（常函数），使得成员函数不能修改任何类型的成员变量（mutable修饰的变量除外，函数参数也除外），也不能调用非const成员函数，因为非const成员函数可能会修改成员变量。</p></li><li><p>const修饰对象（常对象），只能调用常函数，不可调用普通成员函数，因为普通函数可以修改属性；同时不能对成员变量进行修改。</p></li></ul><h1 id="const注意事项"><a href="#const注意事项" class="headerlink" title="const注意事项"></a>const注意事项</h1><h2 id="const成员变量"><a href="#const成员变量" class="headerlink" title="const成员变量"></a>const成员变量</h2><ul><li><p>const成员变量只能在类内声明、的定义，在构造函数初始化列表中初始化，注意在构造函数函数体内部叫赋值（经测试在声明时初始化也可，尽量不要，原因见下条）。</p></li><li><p>const成员变量只在某个对象的生存周期内时常量，对于整个类而言是可变的，因为类可以创建多个对象，不同对象的const成员变量值不同，所以不能在类的声明中初始化const成员变量，因为类的对象还没有创建，编译器不知道他的值。</p></li></ul><h2 id="const成员函数"><a href="#const成员函数" class="headerlink" title="const成员函数"></a>const成员函数</h2><ul><li>不能修改成员变量的值，除非有mutable修饰；只能访问成员变量。</li><li>不能调用非常量成员的函数，以防修改成员变量的值。</li></ul><h1 id="define和const的区别（编译阶段、安全性、内存占用等）"><a href="#define和const的区别（编译阶段、安全性、内存占用等）" class="headerlink" title="define和const的区别（编译阶段、安全性、内存占用等）"></a>define和const的区别（编译阶段、安全性、内存占用等）</h1><ul><li>编译阶段：define是在编译预处理阶段起作用，const是在编译阶段和程序运行阶段起作用。</li><li>安全性：define定义的宏常量没有数据类型，只是进行简单的替换，不会进行类型安全的检查；const定义的只读变量是有类型的，需要进行判断，可以避免一些低级错误。</li><li>内存占用：define定义的宏常量，在程序中使用多少次就会进行多少次替换，内存中有多个备份；const定义的只读变量在程序运行过程中只有一份。</li><li>调试：define定义的不能调试，因为在预编译阶段就进行替换了；const定义的可以进行调试。</li></ul><h1 id="const的优点"><a href="#const的优点" class="headerlink" title="const的优点"></a>const的优点</h1><ul><li>有数据类型，在定义时可进行安全性检查</li><li>可调试</li><li>占用较少的空间</li></ul>]]></content>
       
