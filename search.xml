@@ -31,6 +31,35 @@
     
     
     <entry>
+      <title>重写和重载</title>
+      <link href="2021/05/31/%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD/"/>
+      <url>2021/05/31/%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<h1 id="C-中重载和重写（覆盖）的区别"><a href="#C-中重载和重写（覆盖）的区别" class="headerlink" title="C++中重载和重写（覆盖）的区别"></a>C++中重载和重写（覆盖）的区别</h1><ul><li>对于类中函数的重载和重写而言，重载发生在同一个类内部，重写则发生在不同的类之间，子类和父类之间。</li><li>重载的函数需要与原函数有相同的函数名、不同的参数列表，不关注函数的返回值类型；重写的函数的函数名、参数列表和返回值类型都需要与原函数相同，父类中被重写的函数需要有virtual修饰。</li><li>virtual关键字：重写的函数基类中必须有virtual关键字的修饰，重载的函数可以有virtual关键字修饰也可以没有。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 重写 </tag>
+            
+            <tag> 重载 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C、C++和Python区别</title>
       <link href="2021/05/31/C%E3%80%81C++%E5%92%8CPython/"/>
       <url>2021/05/31/C%E3%80%81C++%E5%92%8CPython/</url>
@@ -52,35 +81,6 @@
             <tag> C </tag>
             
             <tag> Python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>重写和重载</title>
-      <link href="2021/05/31/%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD/"/>
-      <url>2021/05/31/%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD/</url>
-      
-        <content type="html"><![CDATA[<p><font color=red><em><strong>未完待续</strong></em></font></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> C++ </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 重写 </tag>
-            
-            <tag> 重载 </tag>
             
         </tags>
       
