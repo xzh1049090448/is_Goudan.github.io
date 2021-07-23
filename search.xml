@@ -8,7 +8,7 @@
       <link href="2021/07/23/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/"/>
       <url>2021/07/23/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h1><p>​    右值引用是为了支持移动操作，所谓右值引用就是必须绑定到右值的引用，右值引用只能绑定到一个将要销毁的对象，把即将销毁对象的内存、值等全都 “ 拿 ” 过来。右值引用只能绑定右值。</p><p>Eg：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> &amp;&amp;rr1 = <span class="number">42</span>;  <span class="comment">// 正确，字面值是右值</span></span><br><span class="line"><span class="keyword">int</span> &amp;&amp;rr2 = rr1; <span class="comment">// 错误，表达式rr1是左值，变量是左值，即使这个变量是右值引用类型也不行</span></span><br><span class="line"><span class="keyword">int</span> &amp;&amp;rr3 = std::<span class="built_in">move</span>(rr1); <span class="comment">// ok  ,move 将左值显式转换成右值行是，但这就意味着调用move后，除了对rr1进行赋值或者销毁外，我们将不再使用它。</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -21,6 +21,8 @@
         <tags>
             
             <tag> C++ </tag>
+            
+            <tag> 右值引用， &amp;&amp; </tag>
             
         </tags>
       
