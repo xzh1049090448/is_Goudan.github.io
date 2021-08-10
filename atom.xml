@@ -6,7 +6,7 @@
   <link href="http://isgoudan.top/atom.xml" rel="self"/>
   
   <link href="http://isgoudan.top/"/>
-  <updated>2021-07-26T13:16:30.681Z</updated>
+  <updated>2021-07-28T08:08:43.855Z</updated>
   <id>http://isgoudan.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git权限管理</title>
+    <link href="http://isgoudan.top/2021/07/28/git%E6%9D%83%E9%99%90/"/>
+    <id>http://isgoudan.top/2021/07/28/git%E6%9D%83%E9%99%90/</id>
+    <published>2021-07-28T08:06:06.502Z</published>
+    <updated>2021-07-28T08:08:43.855Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    运行Ardupilot出现permission denied错误解决方案：    git config core.filemode false + chmod</p><h3 id="忽略文件权限"><a href="#忽略文件权限" class="headerlink" title="忽略文件权限"></a>忽略文件权限</h3><p>​    有很多时候我们并不需要过多关注文件权限，特别是部署时会重置文件权限的情况，在开发时由于各环境不同，总是有文件权限的冲突，此时，我们可以忽略文件变更追踪。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.filemode <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>可以禁止 <code>Git</code> 跟踪文件权限。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;​    运行Ardupilot出现permission denied错误解决方案：    git config core.filemode false + chmod&lt;/p&gt;
+&lt;h3 id=&quot;忽略文件权限&quot;&gt;&lt;a href=&quot;#忽略文件权限&quot; class=&quot;headerl</summary>
+      
+    
+    
+    
+    <category term="git" scheme="http://isgoudan.top/categories/git/"/>
+    
+    
+    <category term="git" scheme="http://isgoudan.top/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>内存管理（1）</title>
@@ -73,9 +98,9 @@
     <link href="http://isgoudan.top/2021/07/21/C++%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/"/>
     <id>http://isgoudan.top/2021/07/21/C++%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/</id>
     <published>2021-07-21T07:28:16.000Z</published>
-    <updated>2021-07-23T11:15:00.104Z</updated>
+    <updated>2021-07-26T13:37:53.203Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="C-程序的编译过程（源码如何转化成二进制）"><a href="#C-程序的编译过程（源码如何转化成二进制）" class="headerlink" title="C++程序的编译过程（源码如何转化成二进制）"></a>C++程序的编译过程（源码如何转化成二进制）</h1><h2 id="编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接"><a href="#编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接" class="headerlink" title="编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接"></a>编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接</h2><ul><li>编译预处理：处理以 # 开头的指令。</li><li>编译、优化：将源码 .cpp 文件翻译成 .s 汇编代码。</li><li>汇编：将汇编代码 .s 翻译成机器指令 .o 文件。</li><li>链接：汇编程序生成的目标文件不会立即执行，可能有源文件中的函数引用了另一个源文件中定义的符号或者调用了某个库文件中的函数。链接的目的就是将这些目标文件连接成一个整体，生成一个可执行的.exe文件。</li></ul><p><img src="http://images.cnitblog.com/blog/529981/201404/111709143728318.jpg" alt="编译过程"></p><h2 id="链接分为两种：静态和动态"><a href="#链接分为两种：静态和动态" class="headerlink" title="链接分为两种：静态和动态"></a>链接分为两种：静态和动态</h2><ul><li>静态链接：代码从其所在的动态链接库中拷贝到最终的可执行程序中，在该程序被执行时，这些代码会被装入到该进程的虚拟地址空间中。</li><li>动态链接：代码被放到动态链接库或共享对象的某个目标文件中，链接程序只是在最终的可执行程序中记录了共享对象的名字等一些信息。在程序执行时，动态链接库的全部内容会被映射到运行时相应进行的虚拟地址的空间。</li></ul><h2 id="二者优缺点"><a href="#二者优缺点" class="headerlink" title="二者优缺点"></a>二者优缺点</h2><ul><li>静态链接：<strong>浪费空间</strong>，每个可执行程序都会有目标文件的一个副本，这样如果目标文件进行了更新操作，就需要重新进行编译链接生成可执行程序（<strong>更新困难</strong>）；优点就是执行的时候运行速度快，因为可执行程序具备了程序运行的所有内容。</li><li>动态链接：节省内存、更新方便，但是动态链接是在程序运行时，每次执行任务都需要进行链接，性能会有一定的损失。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="C-程序的编译过程（源码如何转化成二进制）"><a href="#C-程序的编译过程（源码如何转化成二进制）" class="headerlink" title="C++程序的编译过程（源码如何转化成二进制）"></a>C++程序的编译过程（源码如何转化成二进制）</h1><h2 id="编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接"><a href="#编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接" class="headerlink" title="编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接"></a>编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接</h2><ul><li>编译预处理：处理以 # 开头的指令。</li><li>编译、优化：将源码 .cpp 文件翻译成 .s 汇编代码。</li><li>汇编：将汇编代码 .s 翻译成机器指令 .o 文件。</li><li>链接：汇编程序生成的目标文件不会立即执行，可能有源文件中的函数引用了另一个源文件中定义的符号或者调用了某个库文件中的函数。链接的目的就是将这些目标文件连接成一个整体，生成一个可执行的.exe文件。</li></ul><p><img src="https://i.loli.net/2021/07/26/OS5yPWYLGnDjk9r.png" alt="编译过程"></p><h2 id="链接分为两种：静态和动态"><a href="#链接分为两种：静态和动态" class="headerlink" title="链接分为两种：静态和动态"></a>链接分为两种：静态和动态</h2><ul><li>静态链接：代码从其所在的动态链接库中拷贝到最终的可执行程序中，在该程序被执行时，这些代码会被装入到该进程的虚拟地址空间中。</li><li>动态链接：代码被放到动态链接库或共享对象的某个目标文件中，链接程序只是在最终的可执行程序中记录了共享对象的名字等一些信息。在程序执行时，动态链接库的全部内容会被映射到运行时相应进行的虚拟地址的空间。</li></ul><h2 id="二者优缺点"><a href="#二者优缺点" class="headerlink" title="二者优缺点"></a>二者优缺点</h2><ul><li>静态链接：<strong>浪费空间</strong>，每个可执行程序都会有目标文件的一个副本，这样如果目标文件进行了更新操作，就需要重新进行编译链接生成可执行程序（<strong>更新困难</strong>）；优点就是执行的时候运行速度快，因为可执行程序具备了程序运行的所有内容。</li><li>动态链接：节省内存、更新方便，但是动态链接是在程序运行时，每次执行任务都需要进行链接，性能会有一定的损失。</li></ul>]]></content>
     
     
       
@@ -99,15 +124,15 @@
     <link href="http://isgoudan.top/2021/05/31/C%E3%80%81C++%E5%92%8CPython/"/>
     <id>http://isgoudan.top/2021/05/31/C%E3%80%81C++%E5%92%8CPython/</id>
     <published>2021-05-31T07:43:37.000Z</published>
-    <updated>2021-05-31T07:56:26.927Z</updated>
+    <updated>2021-08-04T11:30:59.012Z</updated>
     
-    <content type="html"><![CDATA[<p><font color=red><em><strong>未完待续</strong></em></font></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="C和C-区别"><a href="#C和C-区别" class="headerlink" title="C和C++区别"></a>C和C++区别</h1><ul><li>C是面向用户的编程，特点是函数；C++是面向对象的编程，特点是类。<font color=blue>（特性）</font>    </li><li>C主要应用于嵌入式开发、驱动开发和硬件直接打交道的领域；C++可以应用于应用层的开发、用户界面开发等和操作系统直接打交道的领域。<font color=blue>（应用领域 ）</font></li><li>C++继承了C的底层操作特性，增加了面向对象的机制，增加而泛型编程 、异常处理、运算符重载，还增加了命名空间，避免了命名冲突。<font color=blue>（相较于C的升级）</font>    </li></ul><h1 id="C-和-python区别"><a href="#C-和-python区别" class="headerlink" title="C++和 python区别"></a>C++和 python区别</h1>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;font color=red&gt;&lt;em&gt;&lt;strong&gt;未完待续&lt;/strong&gt;&lt;/em&gt;&lt;/font&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h1 id=&quot;C和C-区别&quot;&gt;&lt;a href=&quot;#C和C-区别&quot; class=&quot;headerlink&quot; title=&quot;C和C++区别&quot;&gt;&lt;/a&gt;C和C++区别&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;C是面向用户的编程，特点是函数；C++是面向对象的编程，特点是类。&lt;font color=b</summary>
       
     
     
