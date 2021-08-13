@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>迭代和递归</title>
+      <link href="2021/08/13/%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/"/>
+      <url>2021/08/13/%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/</url>
+      
+        <content type="html"><![CDATA[<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p>​    重复调用函数自身实现循环称为递归。典型问题：斐波那契数列，阶乘（n!）。</p><p>​    构成递归需具备的条件：</p><ol><li>子问题需与原问题为同样的事，且更为简单。</li><li>不能无限制的调用本身，需要有出口。</li></ol><h1 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h1><p>​    迭代法是一种不断用变量的旧值递推新值的过程，典型问题：斐波那契数列，背包问题。</p><h1 id="二者关系与区别"><a href="#二者关系与区别" class="headerlink" title="二者关系与区别"></a>二者关系与区别</h1><p>​    从概念上讲，递归就是指程序调用自身的编程思想，即一个函数调用本身；迭代是利用已知的变量值，根据递推公式不断演进得到新变量值的编程思想。简单的说，递归是重复调用函数自身实现循环。迭代时函数内某段代码实现循环。</p><p>​    迭代与普通循环的区别：迭代时，循环代码中参与运算的变量同时是保存结果的变量，当前保存的结果作为下一次循环计算的初始值。</p><p>​    递归与普通循环的区别：递归是有去无回，而递归是有去有回。</p><p>​    <font color=red>迭代是顺序推导，用临时变量保存结果；递归是逆序推导，用相同函数嵌套调用。</font></p><p>​    </p><p><a href="https://blog.csdn.net/gaoyu1253401563/article/details/82384958?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">参考链接1</a>          <a href="https://blog.csdn.net/qq_40817827/article/details/89950325">参考链接2</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 迭代 </tag>
+            
+            <tag> 递归 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git权限管理</title>
       <link href="2021/07/28/git%E6%9D%83%E9%99%90/"/>
       <url>2021/07/28/git%E6%9D%83%E9%99%90/</url>
