@@ -4,6 +4,68 @@
   
     
     <entry>
+      <title>红黑树</title>
+      <link href="2021/08/23/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
+      <url>2021/08/23/%E7%BA%A2%E9%BB%91%E6%A0%91/</url>
+      
+        <content type="html"><![CDATA[<h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p><img src="https://i.loli.net/2021/08/23/9tClpNzVPEginvd.png" alt="image.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 红黑树，算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>map, set</title>
+      <link href="2021/08/23/map%EF%BC%8Cset/"/>
+      <url>2021/08/23/map%EF%BC%8Cset/</url>
+      
+        <content type="html"><![CDATA[<h1 id="map"><a href="#map" class="headerlink" title="map"></a>map</h1><p>​    map是关键字-值对的集合，又名关联数组。无重复关键字。</p><h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><p>​    set是关键字的简单集合。无重复关键字。</p><h1 id="map和set的区别"><a href="#map和set的区别" class="headerlink" title="map和set的区别"></a>map和set的区别</h1><ul><li><p>相同点：map和set都是 C++的关联容器，底层都是红黑树实现的。</p></li><li><p>元素：map的元素是key-value（键值-实值）对，关键字起到索引的作用，值表示与索引相关联的数据；set的元素是键值，没有实值。</p></li><li><p>迭代器：map的迭代器既不是const也不是mutable，map允许修改value实值，不允许修改key键值；set迭代器是const的，不允许修改键值。其原因在于map和 set是根据关键字来保证其有序性的，如果允许修改键值，那么首先要删除该键，调节平衡，然后再插入修改后的键值，调节平衡，这样一来破坏了map和set的结构，导致iterator失效。</p></li><li><p>下标操作：map支持下标操作，用关键字作为下标访问关键字对应的值，如果关键字不存在，它会自动将该关键字插入；set不支持下标操作。</p></li></ul><h1 id="unordered-map"><a href="#unordered-map" class="headerlink" title="unordered_map"></a>unordered_map</h1><p>​    用哈希函数组织的无序map。</p><h1 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h1><p>​    用哈希函数组织的无序set。</p><h1 id="unordered-map和map的区别"><a href="#unordered-map和map的区别" class="headerlink" title="unordered_map和map的区别"></a>unordered_map和map的区别</h1><ul><li>底层实现不同：<ul><li>unordered_map底层实现是一个哈希表，元素无序。</li><li>map底层实现是红黑树，其内部所有的元素都是有序的，因此对map的所有操作，其实都是对红黑树的操作。</li></ul></li><li>优缺点：<ul><li>unordered_map：查找效率高；但是建立哈希表比较耗费时间。</li><li>map：内部元素有序，查找和删除操作又是logn的时间复杂度；但是维护红黑树的存储结构需要占用一定的内存空间。</li></ul></li><li>适用情况：<ul><li>对于要求内部元素有序的用map，对于要求查找效率的用unordered_map。</li></ul></li></ul><h1 id="multimap"><a href="#multimap" class="headerlink" title="multimap"></a>multimap</h1><p>​    关键字可重复出现的map。</p><h1 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h1><p>​    关键字可重复出现的set。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> map </tag>
+            
+            <tag> set </tag>
+            
+            <tag> unordered_map </tag>
+            
+            <tag> unordered_set </tag>
+            
+            <tag> multiset </tag>
+            
+            <tag> multimap </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>迭代和递归</title>
       <link href="2021/08/13/%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/"/>
       <url>2021/08/13/%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/</url>
@@ -143,7 +205,7 @@
       <link href="2021/05/31/C%E3%80%81C++%E5%92%8CPython/"/>
       <url>2021/05/31/C%E3%80%81C++%E5%92%8CPython/</url>
       
-        <content type="html"><![CDATA[<h1 id="C和C-区别"><a href="#C和C-区别" class="headerlink" title="C和C++区别"></a>C和C++区别</h1><ul><li>C是面向用户的编程，特点是函数；C++是面向对象的编程，特点是类。<font color=blue>（特性）</font>    </li><li>C主要应用于嵌入式开发、驱动开发和硬件直接打交道的领域；C++可以应用于应用层的开发、用户界面开发等和操作系统直接打交道的领域。<font color=blue>（应用领域 ）</font></li><li>C++继承了C的底层操作特性，增加了面向对象的机制，增加而泛型编程 、异常处理、运算符重载，还增加了命名空间，避免了命名冲突。<font color=blue>（相较于C的升级）</font>    </li></ul><h1 id="C-和-python区别"><a href="#C-和-python区别" class="headerlink" title="C++和 python区别"></a>C++和 python区别</h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="C和C-区别"><a href="#C和C-区别" class="headerlink" title="C和C++区别"></a>C和C++区别</h1><ul><li>C是面向用户的编程，特点是函数；C++是面向对象的编程，特点是类。<font color=blue>（特性）</font>    </li><li>C主要应用于嵌入式开发、驱动开发和硬件直接打交道的领域；C++可以应用于应用层的开发、用户界面开发等和操作系统直接打交道的领域。<font color=blue>（应用领域 ）</font></li><li>C++继承了C的底层操作特性，增加了面向对象的机制，增加而泛型编程 、异常处理、运算符重载，还增加了命名空间，避免了命名冲突。<font color=blue>（相较于C的升级）</font>    </li></ul><h1 id="C-和-python区别"><a href="#C-和-python区别" class="headerlink" title="C++和 python区别"></a>C++和 python区别</h1><p><font color = red> 待整理</font></p>]]></content>
       
       
       <categories>
