@@ -6,7 +6,7 @@
   <link href="http://isgoudan.top/atom.xml" rel="self"/>
   
   <link href="http://isgoudan.top/"/>
-  <updated>2021-08-23T08:10:04.292Z</updated>
+  <updated>2021-09-24T10:12:21.152Z</updated>
   <id>http://isgoudan.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gazebo问题汇总</title>
+    <link href="http://isgoudan.top/2021/09/24/X%20Error%20of%20failed%20request/"/>
+    <id>http://isgoudan.top/2021/09/24/X%20Error%20of%20failed%20request/</id>
+    <published>2021-09-24T08:38:52.649Z</published>
+    <updated>2021-09-24T10:12:21.152Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述1"><a href="#问题描述1" class="headerlink" title="问题描述1"></a>问题描述1</h1><p><img src="https://i.loli.net/2021/09/24/FWRNOJ7iPm6Et5U.png" alt="image.png"></p><h1 id="解决方案1"><a href="#解决方案1" class="headerlink" title="解决方案1"></a>解决方案1</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unset LIBGL_ALWAYS_INDIRECT</span><br></pre></td></tr></table></figure><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>gazebo在Ardupilot下模型加载慢</p><p><img src="https://i.loli.net/2021/09/24/gRT3DWJmY69CUnt.png" alt="image.png"></p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>提前下载模型后</p><p>source /usr/share/gazebo/setup.sh</p><h1 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h1><p>运行roslaunch 文件报错</p><p><img src="https://i.loli.net/2021/09/24/vJWqMsb6Gx5CitL.png" alt="image.png"></p><h1 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">把自己创建的catwin那个注释掉</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题描述1&quot;&gt;&lt;a href=&quot;#问题描述1&quot; class=&quot;headerlink&quot; title=&quot;问题描述1&quot;&gt;&lt;/a&gt;问题描述1&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/09/24/FWRNOJ7iPm6Et5U.pn</summary>
+      
+    
+    
+    
+    <category term="Gazebo" scheme="http://isgoudan.top/categories/Gazebo/"/>
+    
+    
+    <category term="Gazebo" scheme="http://isgoudan.top/tags/Gazebo/"/>
+    
+  </entry>
   
   <entry>
     <title>红黑树</title>
