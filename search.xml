@@ -13,7 +13,7 @@
       
       <categories>
           
-          <category> C++, 数据结构 </category>
+          <category> C++ </category>
           
       </categories>
       
@@ -47,11 +47,11 @@
       
         <tags>
             
+            <tag> Gazebo </tag>
+            
             <tag> PX4 </tag>
             
             <tag> ROS </tag>
-            
-            <tag> Gazebo </tag>
             
         </tags>
       
@@ -94,7 +94,7 @@
       
       <categories>
           
-          <category> C++, 数据结构 </category>
+          <category> C++ </category>
           
       </categories>
       
@@ -119,7 +119,7 @@
       
       <categories>
           
-          <category> C++, 数据结构 </category>
+          <category> C++ </category>
           
       </categories>
       
