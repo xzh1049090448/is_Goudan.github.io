@@ -203,11 +203,11 @@
       
         <tags>
             
-            <tag> Gazebo </tag>
-            
             <tag> PX4 </tag>
             
             <tag> ROS </tag>
+            
+            <tag> Gazebo </tag>
             
         </tags>
       
