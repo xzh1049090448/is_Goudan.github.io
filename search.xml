@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>动态对象创建</title>
+      <link href="2022/01/12/%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/"/>
+      <url>2022/01/12/%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 构造 </tag>
+            
+            <tag> 析构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>explicit关键字</title>
+      <link href="2022/01/12/explicit%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+      <url>2022/01/12/explicit%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+      
+        <content type="html"><![CDATA[<ul><li>在创建对象的时候会存在隐式类型转换，添加explicit关键字后不能进行隐式类型转换。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">MyClass</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">MyClass p = <span class="number">10</span>;  <span class="comment">// 如果在类中添加了explicit关键字，这行报错，不能进行隐式类型转换</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> explicit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>对象的构造和析构</title>
+      <link href="2022/01/12/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84/"/>
+      <url>2022/01/12/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h1 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h1><ul><li>构造函数：没有返回值，没有void，类名相同，可以发生重载，可以有参数。</li><li>析构函数：没有返回值，没有void，函数名称：~类名，不可以重载，不可以有参数。</li><li>系统会默认调用构造函数和析构函数且只调用一次。</li><li>若程序员不提供构造和析构函数，系统默认提供空实现。</li><li>构造和析构必须写在public下才可以调用到。</li></ul><h1 id="构造函数的分类和调用"><a href="#构造函数的分类和调用" class="headerlink" title="构造函数的分类和调用"></a>构造函数的分类和调用</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>按参数分类<ul><li>无参构造函数（默认构造函数，调用默认构造函数创建对象时不加“()”，Person p1() 会被认成函数声明）</li><li>有参构造函数</li></ul></li><li>按类型分类<ul><li>普通构造函数</li><li>拷贝构造函数（注意浅拷贝问题，参数要加const）</li></ul></li></ul><h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Person p1;      <span class="comment">// 默认构造</span></span><br><span class="line"><span class="function">Person <span class="title">p2</span><span class="params">(<span class="number">1</span>)</span></span>;   <span class="comment">// 有参构造</span></span><br><span class="line"><span class="function">Person <span class="title">p3</span><span class="params">(p1)</span></span>;<span class="comment">// 拷贝构造</span></span><br><span class="line"><span class="built_in">Person</span>(<span class="number">100</span>);    <span class="comment">// 匿名对象，如果编译器发现匿名对象，那么在这行代码结束后就释放这个对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显式法调用</span></span><br><span class="line">Person p4 = <span class="built_in">Person</span>(<span class="number">100</span>);</span><br><span class="line">Person p5 = <span class="built_in">Person</span>(p4);</span><br><span class="line"><span class="comment">// 不能用拷贝构造函数初始化匿名对象</span></span><br><span class="line"><span class="built_in">Person</span>(p5);    <span class="comment">// 如果这么写，编译器会认为成 Person p5； 对象的声明，但是可以写成右值</span></span><br><span class="line">Person p6 = <span class="built_in">Person</span>(p5);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐式类型转换</span></span><br><span class="line">Person p7 = <span class="number">100</span>;  <span class="comment">// 相当于调用Person p7 = Person(100);</span></span><br><span class="line">Person p8 = p7;</span><br></pre></td></tr></table></figure><h1 id="拷贝构造函数的调用时机"><a href="#拷贝构造函数的调用时机" class="headerlink" title="拷贝构造函数的调用时机"></a>拷贝构造函数的调用时机</h1><ul><li>用已经创建好的对象来初始化新对象。</li><li>以值传递方式给函数参数传值。</li><li>以值方式返回局部对象。</li></ul><h1 id="构造函数的调用规则"><a href="#构造函数的调用规则" class="headerlink" title="构造函数的调用规则"></a>构造函数的调用规则</h1><ul><li><p>系统默认提供三个函数：默认构造函数、拷贝构造函数和析构函数。</p></li><li><p>当提供了有参的构造函数，那么系统不会给我们提供默认构造函数，仍提供默认的拷贝构造函数，进行简单的值拷贝。</p></li><li><p>当提供了拷贝构造函数，那么系统不会提供其他构造函数。</p></li></ul><h1 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h1><ul><li>系统默认提供的拷贝构造会进行简单的值拷贝。</li><li>如果属性里有指向堆区空间的数据，那么简单的浅拷贝会导致重复释放内存的异常。</li><li>解决上述问题需要自己提供拷贝构造函数进行深拷贝。</li></ul><h1 id="构造函数和析构函数的调用顺序（在类对象作为成员时）"><a href="#构造函数和析构函数的调用顺序（在类对象作为成员时）" class="headerlink" title="构造函数和析构函数的调用顺序（在类对象作为成员时）"></a>构造函数和析构函数的调用顺序（在类对象作为成员时）</h1><ul><li>首先对类内的类成员对象进行构造，然后在调用类的构造函数</li><li>析构的顺序正好和构造顺序相反</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">class <span class="title">Phone</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Phone</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Phone构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">    ~<span class="built_in">Phone</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Phone析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">Game</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Game</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Game构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">    ~<span class="built_in">Game</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Game析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Person</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Person构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Person</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Person析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Phone phone;</span><br><span class="line">    Game game;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：</p><p><img src="https://s2.loli.net/2022/01/12/U6bW2kl7AvKzRyt.png" alt="image.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 构造 </tag>
+            
+            <tag> 析构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++封装</title>
       <link href="2022/01/11/C++%E5%B0%81%E8%A3%85/"/>
       <url>2022/01/11/C++%E5%B0%81%E8%A3%85/</url>
@@ -257,7 +342,11 @@
       
         <tags>
             
-            <tag> 红黑树，算法 </tag>
+            <tag> C++ </tag>
+            
+            <tag> 红黑树 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -498,7 +587,7 @@
       <link href="2021/05/28/new%E3%80%81delete%E5%92%8Cmalloc/"/>
       <url>2021/05/28/new%E3%80%81delete%E5%92%8Cmalloc/</url>
       
-        <content type="html"><![CDATA[<h1 id="new和delete的用法"><a href="#new和delete的用法" class="headerlink" title="new和delete的用法"></a>new和delete的用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//开辟一个空间</span></span><br><span class="line"><span class="keyword">int</span>* p1=<span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> p1;</span><br><span class="line"></span><br><span class="line"><span class="comment">//开辟多个空间</span></span><br><span class="line"><span class="keyword">int</span>*p2=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> []p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="malloc和free的用法"><a href="#malloc和free的用法" class="headerlink" title="malloc和free的用法"></a>malloc和free的用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//开辟一个空间</span></span><br><span class="line"><span class="keyword">int</span>* p1=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>));</span><br><span class="line"><span class="keyword">if</span>(p1==<span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line"><span class="comment">//开辟多个空间</span></span><br><span class="line"><span class="keyword">int</span>*p2=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>)*<span class="number">4</span>);</span><br><span class="line"><span class="keyword">if</span>(p2==<span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">free</span>(p2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="new和malloc的区别"><a href="#new和malloc的区别" class="headerlink" title="new和malloc的区别"></a>new和malloc的区别</h1><p>在使用的时候，new和delete搭配使用，malloc和free搭配使用，二者从功能上来看都是用来申请内存和回收内存的。</p><ul><li>属性：malloc/free是库函数，需要头文件的支持；new/delete是关键字，需要编译器的支持。</li><li>参数：new申请空间时，无需指定分配空间的大小，编译器会根据类型自行计算；malloc在申请空间时，需要确定所申请的空间大小。</li><li>返回值：new申请空间时，返回的类型是对象的指针类型，无需强制类型转换，故new是符合类型安全性的操作符。而malloc申请空间返回的是void*类型，需要进行强制类型转换，转化为对象类型的指针。</li><li>分配失败：new分配失败会抛出bad_alloc异常，malloc分配失败时返回空指针。</li><li>重载：new/delete是操作符，支持重载，只能在C++使用；malloc/free是函数，可以覆盖（重写），但不能重载，在C、C++都可以使用。</li><li>自定义类型实现：new首先调用operator new函数申请空间（底层通过malloc实现），然后调用构造函数进行初始化，最后返回自定义类型的指针；delete首先调用析构函数，然后调用operator delete释放空间（底层通过free实现）。malloc/free无法进行自定义类型对象的构造和析构。new分配一个对象，malloc分配一块内存。</li><li>内存区域：new操作符从自由存储区上为对象动态分配内存，malloc函数从堆上动态分配内存。（自由存储区 ≠ 堆）。</li></ul><p><a href="https://blog.csdn.net/weibo1230123/article/details/81980889">参考链接1</a></p><p><a href="https://www.cnblogs.com/maluning/p/7944231.html">参考链接2</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="new和delete的用法"><a href="#new和delete的用法" class="headerlink" title="new和delete的用法"></a>new和delete的用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//开辟一个空间</span></span><br><span class="line"><span class="keyword">int</span>* p1 = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> p1;</span><br><span class="line"></span><br><span class="line"><span class="comment">//开辟多个空间，通过new开辟数组，一定会调用默认构造函数，所以要提供默认构造函数，在堆区开辟数组不能调用有参构造函数，但是在栈区可以调用有参构造函数</span></span><br><span class="line"><span class="keyword">int</span>* p2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</span><br><span class="line">Person pArray[<span class="number">2</span>] = &#123;<span class="built_in">Person</span>(<span class="number">1</span>), <span class="built_in">Person</span>(<span class="number">2</span>)&#125;;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">delete</span> []p2;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 注意事项，用void*接受new出来的指针，会出现释放问题。</span></span><br><span class="line">    <span class="keyword">void</span>* p = <span class="keyword">new</span> Person;</span><br><span class="line">    <span class="keyword">delete</span> p;   <span class="comment">// p无法释放</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="malloc和free的用法"><a href="#malloc和free的用法" class="headerlink" title="malloc和free的用法"></a>malloc和free的用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//开辟一个空间</span></span><br><span class="line"><span class="keyword">int</span>* p1=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>));</span><br><span class="line"><span class="keyword">if</span>(p1==<span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line"><span class="comment">//开辟多个空间</span></span><br><span class="line"><span class="keyword">int</span>*p2=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>)*<span class="number">4</span>);</span><br><span class="line"><span class="keyword">if</span>(p2==<span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">free</span>(p2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="new和malloc的区别"><a href="#new和malloc的区别" class="headerlink" title="new和malloc的区别"></a>new和malloc的区别</h1><p>在使用的时候，new和delete搭配使用，malloc和free搭配使用，二者从功能上来看都是用来申请内存和回收内存的。</p><ul><li>属性：malloc/free是库函数，需要头文件的支持；new/delete是关键字，需要编译器的支持。</li><li>参数：new申请空间时，无需指定分配空间的大小，编译器会根据类型自行计算；malloc在申请空间时，需要确定所申请的空间大小。</li><li>返回值：new申请空间时，返回的类型是对象的指针类型，无需强制类型转换，故new是符合类型安全性的操作符。而malloc申请空间返回的是void*类型，需要进行强制类型转换，转化为对象类型的指针。</li><li>分配失败：new分配失败会抛出bad_alloc异常，malloc分配失败时返回空指针。</li><li>重载：new/delete是操作符，支持重载，只能在C++使用；malloc/free是函数，可以覆盖（重写），但不能重载，在C、C++都可以使用。</li><li>自定义类型实现：new首先调用operator new函数申请空间（底层通过malloc实现），然后调用构造函数进行初始化，最后返回自定义类型的指针；delete首先调用析构函数，然后调用operator delete释放空间（底层通过free实现）。malloc/free无法进行自定义类型对象的构造和析构。new分配一个对象，malloc分配一块内存。</li><li>内存区域：new操作符从自由存储区上为对象动态分配内存，malloc函数从堆上动态分配内存。（自由存储区 ≠ 堆）。</li></ul><p><a href="https://blog.csdn.net/weibo1230123/article/details/81980889">参考链接1</a></p><p><a href="https://www.cnblogs.com/maluning/p/7944231.html">参考链接2</a></p>]]></content>
       
       
       <categories>

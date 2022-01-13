@@ -6,7 +6,7 @@
   <link href="http://isgoudan.top/atom.xml" rel="self"/>
   
   <link href="http://isgoudan.top/"/>
-  <updated>2022-01-11T09:17:32.304Z</updated>
+  <updated>2022-01-12T12:22:59.541Z</updated>
   <id>http://isgoudan.top/</id>
   
   <author>
@@ -17,11 +17,90 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>动态对象创建</title>
+    <link href="http://isgoudan.top/2022/01/12/%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/"/>
+    <id>http://isgoudan.top/2022/01/12/%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/</id>
+    <published>2022-01-12T12:22:19.082Z</published>
+    <updated>2022-01-12T12:22:59.541Z</updated>
+    
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="构造" scheme="http://isgoudan.top/tags/%E6%9E%84%E9%80%A0/"/>
+    
+    <category term="析构" scheme="http://isgoudan.top/tags/%E6%9E%90%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>explicit关键字</title>
+    <link href="http://isgoudan.top/2022/01/12/explicit%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    <id>http://isgoudan.top/2022/01/12/explicit%E5%85%B3%E9%94%AE%E5%AD%97/</id>
+    <published>2022-01-12T12:13:47.998Z</published>
+    <updated>2022-01-12T12:20:47.072Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>在创建对象的时候会存在隐式类型转换，添加explicit关键字后不能进行隐式类型转换。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">MyClass</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">MyClass p = <span class="number">10</span>;  <span class="comment">// 如果在类中添加了explicit关键字，这行报错，不能进行隐式类型转换</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;在创建对象的时候会存在隐式类型转换，添加explicit关键字后不能进行隐式类型转换。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="explicit" scheme="http://isgoudan.top/tags/explicit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对象的构造和析构</title>
+    <link href="http://isgoudan.top/2022/01/12/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84/"/>
+    <id>http://isgoudan.top/2022/01/12/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84/</id>
+    <published>2022-01-12T06:35:19.485Z</published>
+    <updated>2022-01-12T12:15:42.298Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h1><ul><li>构造函数：没有返回值，没有void，类名相同，可以发生重载，可以有参数。</li><li>析构函数：没有返回值，没有void，函数名称：~类名，不可以重载，不可以有参数。</li><li>系统会默认调用构造函数和析构函数且只调用一次。</li><li>若程序员不提供构造和析构函数，系统默认提供空实现。</li><li>构造和析构必须写在public下才可以调用到。</li></ul><h1 id="构造函数的分类和调用"><a href="#构造函数的分类和调用" class="headerlink" title="构造函数的分类和调用"></a>构造函数的分类和调用</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>按参数分类<ul><li>无参构造函数（默认构造函数，调用默认构造函数创建对象时不加“()”，Person p1() 会被认成函数声明）</li><li>有参构造函数</li></ul></li><li>按类型分类<ul><li>普通构造函数</li><li>拷贝构造函数（注意浅拷贝问题，参数要加const）</li></ul></li></ul><h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Person p1;      <span class="comment">// 默认构造</span></span><br><span class="line"><span class="function">Person <span class="title">p2</span><span class="params">(<span class="number">1</span>)</span></span>;   <span class="comment">// 有参构造</span></span><br><span class="line"><span class="function">Person <span class="title">p3</span><span class="params">(p1)</span></span>;<span class="comment">// 拷贝构造</span></span><br><span class="line"><span class="built_in">Person</span>(<span class="number">100</span>);    <span class="comment">// 匿名对象，如果编译器发现匿名对象，那么在这行代码结束后就释放这个对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显式法调用</span></span><br><span class="line">Person p4 = <span class="built_in">Person</span>(<span class="number">100</span>);</span><br><span class="line">Person p5 = <span class="built_in">Person</span>(p4);</span><br><span class="line"><span class="comment">// 不能用拷贝构造函数初始化匿名对象</span></span><br><span class="line"><span class="built_in">Person</span>(p5);    <span class="comment">// 如果这么写，编译器会认为成 Person p5； 对象的声明，但是可以写成右值</span></span><br><span class="line">Person p6 = <span class="built_in">Person</span>(p5);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐式类型转换</span></span><br><span class="line">Person p7 = <span class="number">100</span>;  <span class="comment">// 相当于调用Person p7 = Person(100);</span></span><br><span class="line">Person p8 = p7;</span><br></pre></td></tr></table></figure><h1 id="拷贝构造函数的调用时机"><a href="#拷贝构造函数的调用时机" class="headerlink" title="拷贝构造函数的调用时机"></a>拷贝构造函数的调用时机</h1><ul><li>用已经创建好的对象来初始化新对象。</li><li>以值传递方式给函数参数传值。</li><li>以值方式返回局部对象。</li></ul><h1 id="构造函数的调用规则"><a href="#构造函数的调用规则" class="headerlink" title="构造函数的调用规则"></a>构造函数的调用规则</h1><ul><li><p>系统默认提供三个函数：默认构造函数、拷贝构造函数和析构函数。</p></li><li><p>当提供了有参的构造函数，那么系统不会给我们提供默认构造函数，仍提供默认的拷贝构造函数，进行简单的值拷贝。</p></li><li><p>当提供了拷贝构造函数，那么系统不会提供其他构造函数。</p></li></ul><h1 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h1><ul><li>系统默认提供的拷贝构造会进行简单的值拷贝。</li><li>如果属性里有指向堆区空间的数据，那么简单的浅拷贝会导致重复释放内存的异常。</li><li>解决上述问题需要自己提供拷贝构造函数进行深拷贝。</li></ul><h1 id="构造函数和析构函数的调用顺序（在类对象作为成员时）"><a href="#构造函数和析构函数的调用顺序（在类对象作为成员时）" class="headerlink" title="构造函数和析构函数的调用顺序（在类对象作为成员时）"></a>构造函数和析构函数的调用顺序（在类对象作为成员时）</h1><ul><li>首先对类内的类成员对象进行构造，然后在调用类的构造函数</li><li>析构的顺序正好和构造顺序相反</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">class <span class="title">Phone</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Phone</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Phone构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">    ~<span class="built_in">Phone</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Phone析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">Game</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Game</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Game构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">    ~<span class="built_in">Game</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Game析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Person</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Person构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Person</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Person析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Phone phone;</span><br><span class="line">    Game game;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：</p><p><img src="https://s2.loli.net/2022/01/12/U6bW2kl7AvKzRyt.png" alt="image.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;构造函数和析构函数&quot;&gt;&lt;a href=&quot;#构造函数和析构函数&quot; class=&quot;headerlink&quot; title=&quot;构造函数和析构函数&quot;&gt;&lt;/a&gt;构造函数和析构函数&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;构造函数：没有返回值，没有void，类名相同，可以发生重载，可以有参数。</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="构造" scheme="http://isgoudan.top/tags/%E6%9E%84%E9%80%A0/"/>
+    
+    <category term="析构" scheme="http://isgoudan.top/tags/%E6%9E%90%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++封装</title>
     <link href="http://isgoudan.top/2022/01/11/C++%E5%B0%81%E8%A3%85/"/>
     <id>http://isgoudan.top/2022/01/11/C++%E5%B0%81%E8%A3%85/</id>
     <published>2022-01-11T09:07:08.954Z</published>
-    <updated>2022-01-11T09:17:32.304Z</updated>
+    <updated>2022-01-11T09:32:28.310Z</updated>
     
     <content type="html"><![CDATA[<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><ul><li>把变量（属性）和函数（操作）合成一个整体，封装在一个类中。</li><li>对变量和函数进行访问控制。</li></ul><h1 id="class和struct"><a href="#class和struct" class="headerlink" title="class和struct"></a>class和struct</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>struct和class其实一样，唯一的区别是默认权限不同，struct默认public，class默认private。</p><h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><ul><li>private：私有权限，类内可以访问，类外不可访问，子类也不可访问。</li><li>public：共有权限，类内外都可以访问。</li><li>protected：保护权限，类内可访问，当前类的子类可以访问，类外不可访问。</li></ul>]]></content>
     
@@ -251,7 +330,7 @@
     <link href="http://isgoudan.top/2021/08/23/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
     <id>http://isgoudan.top/2021/08/23/%E7%BA%A2%E9%BB%91%E6%A0%91/</id>
     <published>2021-08-23T07:09:22.369Z</published>
-    <updated>2021-12-09T02:10:38.365Z</updated>
+    <updated>2022-01-12T12:16:00.814Z</updated>
     
     <content type="html"><![CDATA[<h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p><img src="https://i.loli.net/2021/08/23/9tClpNzVPEginvd.png" alt="image.png"></p><p><strong>为什么有了二叉查找树/平衡树还需要红黑树</strong></p>]]></content>
     
@@ -266,7 +345,11 @@
     <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
     
     
-    <category term="红黑树，算法" scheme="http://isgoudan.top/tags/%E7%BA%A2%E9%BB%91%E6%A0%91%EF%BC%8C%E7%AE%97%E6%B3%95/"/>
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="红黑树" scheme="http://isgoudan.top/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
+    
+    <category term="算法" scheme="http://isgoudan.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -464,96 +547,6 @@
     <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
     
     <category term="C" scheme="http://isgoudan.top/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重写和重载</title>
-    <link href="http://isgoudan.top/2021/05/31/%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD/"/>
-    <id>http://isgoudan.top/2021/05/31/%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD/</id>
-    <published>2021-05-31T07:43:37.000Z</published>
-    <updated>2021-07-21T08:20:33.951Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="C-中重载和重写（覆盖）的区别"><a href="#C-中重载和重写（覆盖）的区别" class="headerlink" title="C++中重载和重写（覆盖）的区别"></a>C++中重载和重写（覆盖）的区别</h1><ul><li>对于类中函数的重载和重写而言，重载发生在同一个类内部，重写则发生在不同的类之间，子类和父类之间。</li><li>重载的函数需要与原函数有相同的函数名、不同的参数列表，不关注函数的返回值类型；重写的函数的函数名、参数列表和返回值类型都需要与原函数相同，父类中被重写的函数需要有virtual修饰。</li><li>virtual关键字：重写的函数基类中必须有virtual关键字的修饰，重载的函数可以有virtual关键字修饰也可以没有。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;C-中重载和重写（覆盖）的区别&quot;&gt;&lt;a href=&quot;#C-中重载和重写（覆盖）的区别&quot; class=&quot;headerlink&quot; title=&quot;C++中重载和重写（覆盖）的区别&quot;&gt;&lt;/a&gt;C++中重载和重写（覆盖）的区别&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;对于类中函数的重载和</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
-    
-    <category term="重写" scheme="http://isgoudan.top/tags/%E9%87%8D%E5%86%99/"/>
-    
-    <category term="重载" scheme="http://isgoudan.top/tags/%E9%87%8D%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>new/delete和malloc/free用法及区别</title>
-    <link href="http://isgoudan.top/2021/05/28/new%E3%80%81delete%E5%92%8Cmalloc/"/>
-    <id>http://isgoudan.top/2021/05/28/new%E3%80%81delete%E5%92%8Cmalloc/</id>
-    <published>2021-05-28T03:20:16.000Z</published>
-    <updated>2021-07-21T07:14:58.134Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="new和delete的用法"><a href="#new和delete的用法" class="headerlink" title="new和delete的用法"></a>new和delete的用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//开辟一个空间</span></span><br><span class="line"><span class="keyword">int</span>* p1=<span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> p1;</span><br><span class="line"></span><br><span class="line"><span class="comment">//开辟多个空间</span></span><br><span class="line"><span class="keyword">int</span>*p2=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> []p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="malloc和free的用法"><a href="#malloc和free的用法" class="headerlink" title="malloc和free的用法"></a>malloc和free的用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//开辟一个空间</span></span><br><span class="line"><span class="keyword">int</span>* p1=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>));</span><br><span class="line"><span class="keyword">if</span>(p1==<span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line"><span class="comment">//开辟多个空间</span></span><br><span class="line"><span class="keyword">int</span>*p2=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>)*<span class="number">4</span>);</span><br><span class="line"><span class="keyword">if</span>(p2==<span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">free</span>(p2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="new和malloc的区别"><a href="#new和malloc的区别" class="headerlink" title="new和malloc的区别"></a>new和malloc的区别</h1><p>在使用的时候，new和delete搭配使用，malloc和free搭配使用，二者从功能上来看都是用来申请内存和回收内存的。</p><ul><li>属性：malloc/free是库函数，需要头文件的支持；new/delete是关键字，需要编译器的支持。</li><li>参数：new申请空间时，无需指定分配空间的大小，编译器会根据类型自行计算；malloc在申请空间时，需要确定所申请的空间大小。</li><li>返回值：new申请空间时，返回的类型是对象的指针类型，无需强制类型转换，故new是符合类型安全性的操作符。而malloc申请空间返回的是void*类型，需要进行强制类型转换，转化为对象类型的指针。</li><li>分配失败：new分配失败会抛出bad_alloc异常，malloc分配失败时返回空指针。</li><li>重载：new/delete是操作符，支持重载，只能在C++使用；malloc/free是函数，可以覆盖（重写），但不能重载，在C、C++都可以使用。</li><li>自定义类型实现：new首先调用operator new函数申请空间（底层通过malloc实现），然后调用构造函数进行初始化，最后返回自定义类型的指针；delete首先调用析构函数，然后调用operator delete释放空间（底层通过free实现）。malloc/free无法进行自定义类型对象的构造和析构。new分配一个对象，malloc分配一块内存。</li><li>内存区域：new操作符从自由存储区上为对象动态分配内存，malloc函数从堆上动态分配内存。（自由存储区 ≠ 堆）。</li></ul><p><a href="https://blog.csdn.net/weibo1230123/article/details/81980889">参考链接1</a></p><p><a href="https://www.cnblogs.com/maluning/p/7944231.html">参考链接2</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;new和delete的用法&quot;&gt;&lt;a href=&quot;#new和delete的用法&quot; class=&quot;headerlink&quot; title=&quot;new和delete的用法&quot;&gt;&lt;/a&gt;new和delete的用法&lt;/h1&gt;&lt;figure class=&quot;highlight c++&quot;</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
-    
-    <category term="new" scheme="http://isgoudan.top/tags/new/"/>
-    
-    <category term="malloc" scheme="http://isgoudan.top/tags/malloc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>内存分区模型</title>
-    <link href="http://isgoudan.top/2021/05/21/%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/"/>
-    <id>http://isgoudan.top/2021/05/21/%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/</id>
-    <published>2021-05-21T08:45:16.000Z</published>
-    <updated>2021-05-31T08:28:18.593Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="内存分区模型"><a href="#内存分区模型" class="headerlink" title="内存分区模型"></a>内存分区模型</h1><p>目前网络上主要有两种内存分区方法：</p><h2 id="四区"><a href="#四区" class="headerlink" title="四区"></a>四区</h2><p>C++程序在执行时，将内存大方向分为四个区：</p><ul><li>代码区：存放函数体的二进制代码，由操作系统进行管理。<font color=blue>(共享、只读)</font></li><li>全局区：存放全局变量和静态变量以及常量。<font color=blue>（该区数据在程序结束后由操作系统释放）</font></li><li>栈区：由编译器自动分配释放，存放函数的参数值，局部变量等。<font color=blue>（注意函数不要返回局部变量的地址 ）</font></li><li>堆区：由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。<font color=blue>（可以把函数返回的地址保存住，用new来开辟内存）</font></li></ul><h2 id="五区"><a href="#五区" class="headerlink" title="五区"></a>五区</h2><p>分为五区：</p><ul><li>栈区：存放函数的局部变量，由编译器自动分配和释放。</li><li>堆区：动态申请的内存空间，由malloc分配的内存块，由程序员控制它的分配和释放，如果程序执行结束还没有释放，操作系统会自动回收。</li><li>自由存储区：和堆十分相似，存放由new分配的内存块，由delete释放内存。</li><li>全局区/静态区：存放全局变量和静态变量。</li><li>常量存储区：存放的是常量，不允许修改。</li></ul><p><strong>内存四区的意义：不同区域存放的数据，赋予不同的生命周期，给我们更大的灵活性来编程。</strong></p><h2 id="堆和自由存储区的区别："><a href="#堆和自由存储区的区别：" class="headerlink" title="堆和自由存储区的区别："></a>堆和自由存储区的区别：</h2><ul><li>自由存储区是C++中通过new与delete动态分配和释放对象的抽象概念，而堆是C语言和操作系统的术语，是操作系统维护的一块动态分配内存。</li><li>new所申请的内存区域在C++中成为自由存储区，通过堆实现的自由存储，可以说new所申请的内存区域在堆上。</li><li>堆和自由存储区有区别，并非等价。使用new来分配内存，程序员也可以通过重载操作符，改用其他的内存来实现自由存储，例如全局变量做的对象池，这时自由存储区就区别于堆了。</li></ul><p><a href="https://www.cnblogs.com/QG-whz/p/5060894.html">参考链接</a></p><h1 id="堆和自由存储区定义："><a href="#堆和自由存储区定义：" class="headerlink" title="堆和自由存储区定义："></a>堆和自由存储区定义：</h1><blockquote><p>Free Store：<br>The free store is one of the two dynamic memory areas, allocated/freed by new/delete. Object lifetime can be less than the time the storage is allocated; that is, free store objects can have memory allocated without being immediately initialized, and can be destroyed without the memory being immediately deallocated. During the period when the storage is allocated but outside the object’s lifetime, the storage may be accessed and manipulated through a void* but none of the proto-object’s non-static members or member functions may be accessed, have their addresses taken, or be otherwise manipulated.</p></blockquote><blockquote><p>Heap：<br>The heap is the other dynamic memory area, allocated/freed by malloc/free and their variants. Note that while the default global new and delete might be implemented in terms of malloc and free by a particular compiler, the heap is not the same as free store and memory allocated in one area cannot be safely deallocated in the other. Memory allocated from the heap can be used for objects of class type by placement-new construction and explicit destruction. If so used, the notes about free store object lifetime apply similarly here.</p></blockquote><p>来源：<a href="http://www.gotw.ca/gotw/009.htm">http://www.gotw.ca/gotw/009.htm</a></p><h2 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h2><ul><li>申请方式：栈是系统自动分配的，而堆是程序员主动申请的。</li><li>申请后系统响应：分配栈空间，如果剩余空间大于申请空间则分配成功，否则分配失败栈溢出；申请堆空间，堆在内存中的呈现方式类似于链表（记录空闲地址空间的链表），在链表上寻找第一个大于申请空间的节点分配给程序 ，将该节点从链表中删除，大多数系统会在该块空间的首地址处记录本次分配的大小，便于之后的delete语句释放内存。另外，找到的内存空间大小不一定正好等于申请空间大小，系统自动将多余部分重新放入空闲链表中。</li><li>栈在内存中是连续的一块空间（向低地址扩展）最大容量是系统预定好的，堆在内存中的空间（向高地址扩展）是不连续的。</li><li>申请效率：栈是由系统自动分配的，申请效率高但程序员无法控制；堆是由程序员主动申请的，效率低，使用起来方便但是容易产生碎片。</li><li>存放内容：栈中存放的是局部变量，函数的参数；堆中存放的内容是由程序员控制的。</li></ul><p><a href="https://blog.csdn.net/hairetz/article/details/4141043">参考链接</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;内存分区模型&quot;&gt;&lt;a href=&quot;#内存分区模型&quot; class=&quot;headerlink&quot; title=&quot;内存分区模型&quot;&gt;&lt;/a&gt;内存分区模型&lt;/h1&gt;&lt;p&gt;目前网络上主要有两种内存分区方法：&lt;/p&gt;
-&lt;h2 id=&quot;四区&quot;&gt;&lt;a href=&quot;#四区&quot; class=</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
-    
-    <category term="内存" scheme="http://isgoudan.top/tags/%E5%86%85%E5%AD%98/"/>
-    
-    <category term="堆" scheme="http://isgoudan.top/tags/%E5%A0%86/"/>
-    
-    <category term="栈" scheme="http://isgoudan.top/tags/%E6%A0%88/"/>
-    
-    <category term="自由存储区" scheme="http://isgoudan.top/tags/%E8%87%AA%E7%94%B1%E5%AD%98%E5%82%A8%E5%8C%BA/"/>
     
   </entry>
   
