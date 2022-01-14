@@ -6,7 +6,7 @@
   <link href="http://isgoudan.top/atom.xml" rel="self"/>
   
   <link href="http://isgoudan.top/"/>
-  <updated>2022-01-12T12:22:59.541Z</updated>
+  <updated>2022-01-14T11:54:15.513Z</updated>
   <id>http://isgoudan.top/</id>
   
   <author>
@@ -17,12 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>动态对象创建</title>
-    <link href="http://isgoudan.top/2022/01/12/%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/"/>
-    <id>http://isgoudan.top/2022/01/12/%E5%8A%A8%E6%80%81%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/</id>
-    <published>2022-01-12T12:22:19.082Z</published>
-    <updated>2022-01-12T12:22:59.541Z</updated>
+    <title>智能指针</title>
+    <link href="http://isgoudan.top/2022/01/14/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
+    <id>http://isgoudan.top/2022/01/14/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</id>
+    <published>2022-01-14T11:43:39.996Z</published>
+    <updated>2022-01-14T11:54:15.513Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>​        用来托管自定义类型的对象，让对象进行自动释放</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;智能指针&quot;&gt;&lt;a href=&quot;#智能指针&quot; class=&quot;headerlink&quot; title=&quot;智能指针&quot;&gt;&lt;/a&gt;智能指针&lt;/h1&gt;&lt;p&gt;​        用来托管自定义类型的对象，让对象进行自动释放&lt;/p&gt;
+</summary>
+      
     
     
     
@@ -31,9 +39,174 @@
     
     <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
     
-    <category term="构造" scheme="http://isgoudan.top/tags/%E6%9E%84%E9%80%A0/"/>
+    <category term="智能指针" scheme="http://isgoudan.top/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
     
-    <category term="析构" scheme="http://isgoudan.top/tags/%E6%9E%90%E6%9E%84/"/>
+  </entry>
+  
+  <entry>
+    <title>运算符重载</title>
+    <link href="http://isgoudan.top/2022/01/14/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/"/>
+    <id>http://isgoudan.top/2022/01/14/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/</id>
+    <published>2022-01-14T08:03:59.128Z</published>
+    <updated>2022-01-14T11:42:16.240Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="左移运算符重载"><a href="#左移运算符重载" class="headerlink" title="左移运算符重载"></a>左移运算符重载</h1><ul><li>必须写在写在全局函数中，如果重载时想访问类的私有成员，需要将全局函数作类的友元。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;cout, Person &amp;A) &#123;</span><br><span class="line">    cout &lt;&lt; A.mA;</span><br><span class="line">    <span class="keyword">return</span> cout;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="加法运算符重载"><a href="#加法运算符重载" class="headerlink" title="加法运算符重载"></a>加法运算符重载</h1><ul><li>可以在成员函数进行重载，也可以在全局函数重载。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Person <span class="keyword">operator</span>+(Person &amp;A, Person&amp; B) &#123;  <span class="comment">// 全局方式  ，局部只需要把参数改下，返回this指针就行</span></span><br><span class="line">Person temp;</span><br><span class="line">    temp.mA = A.mA + B.mA;</span><br><span class="line">    temp.mB = A.mB + B.mB;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="前置递增运算符重载"><a href="#前置递增运算符重载" class="headerlink" title="前置递增运算符重载"></a>前置递增运算符重载</h1><ul><li>可以在成员函数进行重载，也可以在全局函数重载。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInteger</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyInteger</span>() &#123;</span><br><span class="line">mNum = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    MyInteger&amp; <span class="keyword">operator</span>++() &#123;</span><br><span class="line">        <span class="keyword">this</span>.mNum++;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> mNum;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyInteger&amp; <span class="keyword">operator</span>++(MyInteger&amp; A) &#123;</span><br><span class="line">    A.mNum++;</span><br><span class="line">    <span class="keyword">return</span> A;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="后置递增运算符重载"><a href="#后置递增运算符重载" class="headerlink" title="后置递增运算符重载"></a>后置递增运算符重载</h1><ul><li>可以在成员函数进行重载，也可以在全局函数重载。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInteger</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyInteger</span>() &#123;</span><br><span class="line">mNum = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    MyInteger <span class="keyword">operator</span>++(<span class="keyword">int</span>) &#123;</span><br><span class="line">        MyInteger tmp = *<span class="keyword">this</span>;</span><br><span class="line">        A.mNum++;</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> mNum;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyInteger <span class="keyword">operator</span>++(MyInteger&amp; A, <span class="keyword">int</span>) &#123;</span><br><span class="line">    MyInteger tmp = A;</span><br><span class="line">    A.mNum++;</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;左移运算符重载&quot;&gt;&lt;a href=&quot;#左移运算符重载&quot; class=&quot;headerlink&quot; title=&quot;左移运算符重载&quot;&gt;&lt;/a&gt;左移运算符重载&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;必须写在写在全局函数中，如果重载时想访问类的私有成员，需要将全局函数作类的友元。&lt;/li</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="重载" scheme="http://isgoudan.top/tags/%E9%87%8D%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>友元</title>
+    <link href="http://isgoudan.top/2022/01/14/%E5%8F%8B%E5%85%83/"/>
+    <id>http://isgoudan.top/2022/01/14/%E5%8F%8B%E5%85%83/</id>
+    <published>2022-01-14T06:58:25.290Z</published>
+    <updated>2022-01-14T07:11:38.675Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="友元目的"><a href="#友元目的" class="headerlink" title="友元目的"></a>友元目的</h1><p>​        访问类中的私有成员属性。</p><h1 id="三种友元"><a href="#三种友元" class="headerlink" title="三种友元"></a>三种友元</h1><ul><li><p>全局函数做友元函数，在类中写friend void show();</p></li><li><p>整个类做友元类。在类中写friend class Person;</p><ul><li>注意事项：<ul><li>友元关系不能被继承。</li><li>友元关系是单向的，类A是类B的朋友，但是类B不一定是类A的朋友。</li><li>友元关系不具有传递性。类B是类A的朋友，类C是类B的朋友，但是类C和类A不一定是朋友。</li></ul></li></ul></li><li><p>成员函数做友元函数，在类中写friend void Person::show();</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;友元目的&quot;&gt;&lt;a href=&quot;#友元目的&quot; class=&quot;headerlink&quot; title=&quot;友元目的&quot;&gt;&lt;/a&gt;友元目的&lt;/h1&gt;&lt;p&gt;​        访问类中的私有成员属性。&lt;/p&gt;
+&lt;h1 id=&quot;三种友元&quot;&gt;&lt;a href=&quot;#三种友元&quot; class=</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="friend" scheme="http://isgoudan.top/tags/friend/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>空指针访问成员函数</title>
+    <link href="http://isgoudan.top/2022/01/14/%E7%A9%BA%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/"/>
+    <id>http://isgoudan.top/2022/01/14/%E7%A9%BA%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/</id>
+    <published>2022-01-13T16:53:24.348Z</published>
+    <updated>2022-01-14T06:40:27.514Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>如果成员函数没有用到this，那么空指针可以直接访问。</li><li>如果成员函数用的this指针，需要加if判断，如果this为空，直接return。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;show&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">shouAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">cout &lt;&lt; mAge &lt;&lt;  endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> mAge;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">test01</span>() &#123;</span><br><span class="line">Person *p1 = <span class="literal">NULL</span>;</span><br><span class="line">    p1-&gt;<span class="built_in">show</span>();    <span class="comment">// 正常运行</span></span><br><span class="line">    p1-&gt;<span class="built_in">shouAge</span>();<span class="comment">// 报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;如果成员函数没有用到this，那么空指针可以直接访问。&lt;/li&gt;
+&lt;li&gt;如果成员函数用的this指针，需要加if判断，如果this为空，直接return。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>内存对齐</title>
+    <link href="http://isgoudan.top/2022/01/14/%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/"/>
+    <id>http://isgoudan.top/2022/01/14/%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/</id>
+    <published>2022-01-13T16:46:11.438Z</published>
+    <updated>2022-01-13T16:50:35.914Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="结构体内存对齐方式"><a href="#结构体内存对齐方式" class="headerlink" title="结构体内存对齐方式"></a>结构体内存对齐方式</h1><p>​        结构体大小不是个数据成员之和，而是按照一定的对其数进行对齐存储，最后结构体的大小也是按照一定的对齐数进行对齐。</p><p>对齐规则：</p><ul><li>第一个成员在与结构体变量偏移量为0的地址。</li><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;结构体内存对齐方式&quot;&gt;&lt;a href=&quot;#结构体内存对齐方式&quot; class=&quot;headerlink&quot; title=&quot;结构体内存对齐方式&quot;&gt;&lt;/a&gt;结构体内存对齐方式&lt;/h1&gt;&lt;p&gt;​        结构体大小不是个数据成员之和，而是按照一定的对其数进行对齐存储，最</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="内存" scheme="http://isgoudan.top/tags/%E5%86%85%E5%AD%98/"/>
+    
+    <category term="面经" scheme="http://isgoudan.top/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>this指针</title>
+    <link href="http://isgoudan.top/2022/01/13/this%E6%8C%87%E9%92%88/"/>
+    <id>http://isgoudan.top/2022/01/13/this%E6%8C%87%E9%92%88/</id>
+    <published>2022-01-13T08:37:27.138Z</published>
+    <updated>2022-01-13T16:46:21.092Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>this指针指向被调用的成员函数所属的对象。</p></li><li><p>this是一种隐含指针，它隐含于每个类的非静态成员函数中，静态成员函数内部没有this指针，因此静态成员函数不能操作非静态成员变量。</p></li><li><p>当形参和成员变量同名时，可用this指针区分。</p></li><li><p>在类的非静态成员函数中返回对象本身，可使用 return *this。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;this指针指向被调用的成员函数所属的对象。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;this是一种隐含指针，它隐含于每个类的非静态成员函数中，静态成员函数内部没有this指针，因此静态成员函数不能操作非静态成员变量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;当形参和</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="this" scheme="http://isgoudan.top/tags/this/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>static静态成员变量</title>
+    <link href="http://isgoudan.top/2022/01/13/static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/"/>
+    <id>http://isgoudan.top/2022/01/13/static%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</id>
+    <published>2022-01-13T05:53:15.251Z</published>
+    <updated>2022-01-13T06:38:51.846Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="static"><a href="#static" class="headerlink" title="static"></a>static</h1><h2 id="静态成员变量"><a href="#静态成员变量" class="headerlink" title="静态成员变量"></a>静态成员变量</h2><ul><li>静态成员变量，属于某个类，所有成员共享，即一个类不管创建多少对象，他们都共用一个静态数据。</li><li>静态变量，在编译阶段就分配空间，对象还没创建时就已经分配了空间。</li><li>静态数据成员不属于某个对象，在为对象分配空间中不包括静态成员所占空间。</li><li><font color=red>静态成员变量必须在类中声明，类外定义。</font></li><li>静态成员变量也有权限。</li></ul><h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><ul><li>静态成员函数可以在类内实现。</li><li>静态成员函数不可以访问普通的成员变量，可以访问静态成员变量</li><li>静态成员函数也有权限。</li><li>普通成员函数可以访问静态成员变量和静态成员函数。</li></ul><h1 id="访问方式"><a href="#访问方式" class="headerlink" title="访问方式"></a>访问方式</h1><ul><li>通过对象访问</li><li>通过类名访问</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> m_Age; <span class="comment">// 类内声明</span></span><br><span class="line"><span class="keyword">int</span> m_A;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; m_A &lt;&lt; endl;  会报错，不能访问普通成员变量</span></span><br><span class="line">        cout &lt;&lt; m_other &lt;&lt; endl;  <span class="comment">// 可以访问静态成员变量</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> m_other;  <span class="comment">// 私有权限，类外不能访问，但是加上作用域可以在类外初始化</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Person::m_Age = <span class="number">10</span>;  <span class="comment">// 类外初始化</span></span><br><span class="line"><span class="keyword">int</span> Person::m_other = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">Person p1;</span><br><span class="line">    Person p2;</span><br><span class="line">    p1.m_Age = <span class="number">20</span>;</span><br><span class="line">    p2.m_Age = <span class="number">30</span>;</span><br><span class="line">cout &lt;&lt; p1.m_Age &lt;&lt; endl;  <span class="comment">// 30</span></span><br><span class="line">    cout &lt;&lt; p2.m_Age &lt;&lt; endl;  <span class="comment">// 30</span></span><br><span class="line">cout &lt;&lt; Person::m_Age &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;static&quot;&gt;&lt;a href=&quot;#static&quot; class=&quot;headerlink&quot; title=&quot;static&quot;&gt;&lt;/a&gt;static&lt;/h1&gt;&lt;h2 id=&quot;静态成员变量&quot;&gt;&lt;a href=&quot;#静态成员变量&quot; class=&quot;headerlink&quot; titl</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
+    
+    
+    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
+    
+    <category term="static" scheme="http://isgoudan.top/tags/static/"/>
     
   </entry>
   
@@ -71,9 +244,9 @@
     <link href="http://isgoudan.top/2022/01/12/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84/"/>
     <id>http://isgoudan.top/2022/01/12/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84/</id>
     <published>2022-01-12T06:35:19.485Z</published>
-    <updated>2022-01-12T12:15:42.298Z</updated>
+    <updated>2022-01-13T05:33:32.059Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h1><ul><li>构造函数：没有返回值，没有void，类名相同，可以发生重载，可以有参数。</li><li>析构函数：没有返回值，没有void，函数名称：~类名，不可以重载，不可以有参数。</li><li>系统会默认调用构造函数和析构函数且只调用一次。</li><li>若程序员不提供构造和析构函数，系统默认提供空实现。</li><li>构造和析构必须写在public下才可以调用到。</li></ul><h1 id="构造函数的分类和调用"><a href="#构造函数的分类和调用" class="headerlink" title="构造函数的分类和调用"></a>构造函数的分类和调用</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>按参数分类<ul><li>无参构造函数（默认构造函数，调用默认构造函数创建对象时不加“()”，Person p1() 会被认成函数声明）</li><li>有参构造函数</li></ul></li><li>按类型分类<ul><li>普通构造函数</li><li>拷贝构造函数（注意浅拷贝问题，参数要加const）</li></ul></li></ul><h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Person p1;      <span class="comment">// 默认构造</span></span><br><span class="line"><span class="function">Person <span class="title">p2</span><span class="params">(<span class="number">1</span>)</span></span>;   <span class="comment">// 有参构造</span></span><br><span class="line"><span class="function">Person <span class="title">p3</span><span class="params">(p1)</span></span>;<span class="comment">// 拷贝构造</span></span><br><span class="line"><span class="built_in">Person</span>(<span class="number">100</span>);    <span class="comment">// 匿名对象，如果编译器发现匿名对象，那么在这行代码结束后就释放这个对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显式法调用</span></span><br><span class="line">Person p4 = <span class="built_in">Person</span>(<span class="number">100</span>);</span><br><span class="line">Person p5 = <span class="built_in">Person</span>(p4);</span><br><span class="line"><span class="comment">// 不能用拷贝构造函数初始化匿名对象</span></span><br><span class="line"><span class="built_in">Person</span>(p5);    <span class="comment">// 如果这么写，编译器会认为成 Person p5； 对象的声明，但是可以写成右值</span></span><br><span class="line">Person p6 = <span class="built_in">Person</span>(p5);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐式类型转换</span></span><br><span class="line">Person p7 = <span class="number">100</span>;  <span class="comment">// 相当于调用Person p7 = Person(100);</span></span><br><span class="line">Person p8 = p7;</span><br></pre></td></tr></table></figure><h1 id="拷贝构造函数的调用时机"><a href="#拷贝构造函数的调用时机" class="headerlink" title="拷贝构造函数的调用时机"></a>拷贝构造函数的调用时机</h1><ul><li>用已经创建好的对象来初始化新对象。</li><li>以值传递方式给函数参数传值。</li><li>以值方式返回局部对象。</li></ul><h1 id="构造函数的调用规则"><a href="#构造函数的调用规则" class="headerlink" title="构造函数的调用规则"></a>构造函数的调用规则</h1><ul><li><p>系统默认提供三个函数：默认构造函数、拷贝构造函数和析构函数。</p></li><li><p>当提供了有参的构造函数，那么系统不会给我们提供默认构造函数，仍提供默认的拷贝构造函数，进行简单的值拷贝。</p></li><li><p>当提供了拷贝构造函数，那么系统不会提供其他构造函数。</p></li></ul><h1 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h1><ul><li>系统默认提供的拷贝构造会进行简单的值拷贝。</li><li>如果属性里有指向堆区空间的数据，那么简单的浅拷贝会导致重复释放内存的异常。</li><li>解决上述问题需要自己提供拷贝构造函数进行深拷贝。</li></ul><h1 id="构造函数和析构函数的调用顺序（在类对象作为成员时）"><a href="#构造函数和析构函数的调用顺序（在类对象作为成员时）" class="headerlink" title="构造函数和析构函数的调用顺序（在类对象作为成员时）"></a>构造函数和析构函数的调用顺序（在类对象作为成员时）</h1><ul><li>首先对类内的类成员对象进行构造，然后在调用类的构造函数</li><li>析构的顺序正好和构造顺序相反</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">class <span class="title">Phone</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Phone</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Phone构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">    ~<span class="built_in">Phone</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Phone析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">Game</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Game</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Game构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">    ~<span class="built_in">Game</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Game析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Person</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Person构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Person</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Person析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Phone phone;</span><br><span class="line">    Game game;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：</p><p><img src="https://s2.loli.net/2022/01/12/U6bW2kl7AvKzRyt.png" alt="image.png"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h1><ul><li>构造函数：没有返回值，没有void，类名相同，可以发生重载，可以有参数。</li><li>析构函数：没有返回值，没有void，函数名称：~类名，不可以重载，不可以有参数。</li><li>系统会默认调用构造函数和析构函数且只调用一次。</li><li>若程序员不提供构造和析构函数，系统默认提供空实现。</li><li>构造和析构必须写在public下才可以调用到。</li></ul><h1 id="构造函数的分类和调用"><a href="#构造函数的分类和调用" class="headerlink" title="构造函数的分类和调用"></a>构造函数的分类和调用</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>按参数分类<ul><li>无参构造函数（默认构造函数，调用默认构造函数创建对象时不加“()”，Person p1() 会被认成函数声明）</li><li>有参构造函数</li></ul></li><li>按类型分类<ul><li>普通构造函数</li><li>拷贝构造函数（注意浅拷贝问题，参数要加const）</li></ul></li></ul><h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Person p1;      <span class="comment">// 默认构造</span></span><br><span class="line"><span class="function">Person <span class="title">p2</span><span class="params">(<span class="number">1</span>)</span></span>;   <span class="comment">// 有参构造</span></span><br><span class="line"><span class="function">Person <span class="title">p3</span><span class="params">(p1)</span></span>;<span class="comment">// 拷贝构造</span></span><br><span class="line"><span class="built_in">Person</span>(<span class="number">100</span>);    <span class="comment">// 匿名对象，如果编译器发现匿名对象，那么在这行代码结束后就释放这个对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显式法调用</span></span><br><span class="line">Person p4 = <span class="built_in">Person</span>(<span class="number">100</span>);</span><br><span class="line">Person p5 = <span class="built_in">Person</span>(p4);</span><br><span class="line"><span class="comment">// 不能用拷贝构造函数初始化匿名对象</span></span><br><span class="line"><span class="built_in">Person</span>(p5);    <span class="comment">// 如果这么写，编译器会认为成 Person p5； 对象的声明，但是可以写成右值</span></span><br><span class="line">Person p6 = <span class="built_in">Person</span>(p5);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐式类型转换</span></span><br><span class="line">Person p7 = <span class="number">100</span>;  <span class="comment">// 相当于调用Person p7 = Person(100);</span></span><br><span class="line">Person p8 = p7;</span><br></pre></td></tr></table></figure><h1 id="拷贝构造函数的调用时机"><a href="#拷贝构造函数的调用时机" class="headerlink" title="拷贝构造函数的调用时机"></a>拷贝构造函数的调用时机</h1><ul><li>用已经创建好的对象来初始化新对象。</li><li>以值传递方式给函数参数传值。</li><li>以值方式返回局部对象。</li></ul><h1 id="构造函数的调用规则"><a href="#构造函数的调用规则" class="headerlink" title="构造函数的调用规则"></a>构造函数的调用规则</h1><ul><li><p>系统默认提供三个函数：默认构造函数、拷贝构造函数和析构函数。</p></li><li><p>当提供了有参的构造函数，那么系统不会给我们提供默认构造函数，仍提供默认的拷贝构造函数，进行简单的值拷贝。</p></li><li><p>当提供了拷贝构造函数，那么系统不会提供其他构造函数。</p></li></ul><h1 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h1><ul><li>系统默认提供的拷贝构造会进行简单的值拷贝。</li><li>如果属性里有指向堆区空间的数据，那么简单的浅拷贝会导致重复释放内存的异常。</li><li>解决上述问题需要自己提供拷贝构造函数进行深拷贝。</li></ul><h1 id="构造函数和析构函数的调用顺序（在类对象作为成员时）"><a href="#构造函数和析构函数的调用顺序（在类对象作为成员时）" class="headerlink" title="构造函数和析构函数的调用顺序（在类对象作为成员时）"></a>构造函数和析构函数的调用顺序（在类对象作为成员时）</h1><ul><li>首先对类内的类成员对象进行构造，然后在调用类的构造函数</li><li>析构的顺序正好和构造顺序相反</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">class <span class="title">Phone</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Phone</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Phone构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">    ~<span class="built_in">Phone</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Phone析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">Game</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Game</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Game构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">    ~<span class="built_in">Game</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Game析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line"><span class="function">class <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Person</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Person构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Person</span>() &#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Person析构&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Phone phone;</span><br><span class="line">    Game game;</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure><p>运行结果：</p><p><img src="https://s2.loli.net/2022/01/12/U6bW2kl7AvKzRyt.png" alt="image.png"></p>]]></content>
     
     
       
@@ -100,18 +273,17 @@
     <link href="http://isgoudan.top/2022/01/11/C++%E5%B0%81%E8%A3%85/"/>
     <id>http://isgoudan.top/2022/01/11/C++%E5%B0%81%E8%A3%85/</id>
     <published>2022-01-11T09:07:08.954Z</published>
-    <updated>2022-01-11T09:32:28.310Z</updated>
+    <updated>2022-01-13T08:37:25.262Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><ul><li>把变量（属性）和函数（操作）合成一个整体，封装在一个类中。</li><li>对变量和函数进行访问控制。</li></ul><h1 id="class和struct"><a href="#class和struct" class="headerlink" title="class和struct"></a>class和struct</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>struct和class其实一样，唯一的区别是默认权限不同，struct默认public，class默认private。</p><h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><ul><li>private：私有权限，类内可以访问，类外不可访问，子类也不可访问。</li><li>public：共有权限，类内外都可以访问。</li><li>protected：保护权限，类内可访问，当前类的子类可以访问，类外不可访问。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><ul><li>把变量（属性）和函数（操作）合成一个整体，封装在一个类中。</li><li>成员变量和成员函数是分开存储的。</li><li>对变量和函数进行访问控制。</li><li>空类大小为1。 </li><li>只有非静态成员变量属于对象。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="comment">// 注释为加了该行后类的大小。</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> m_A;         <span class="comment">// 非静态成员变量，属于对象，   大小为4</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;&#125;;  <span class="comment">// 非静态成员函数，不属于对象， 大小为4   是通过this指针区分不同对象调用</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> m_B;  <span class="comment">// 静态成员变量，不属于对象，   大小为4</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func2</span><span class="params">()</span> </span>&#123;&#125;; <span class="comment">// 静态成员函数，不属于对象 大小4</span></span><br><span class="line">    <span class="keyword">double</span> m_C;      <span class="comment">// 12 错误  大小为16， double占8，但是因为字节对齐，int占4个补齐8个</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h1 id="class和struct"><a href="#class和struct" class="headerlink" title="class和struct"></a>class和struct</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>struct和class其实一样，唯一的区别是默认权限不同，struct默认public，class默认private。</p><h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><ul><li>private：私有权限，类内可以访问，类外不可访问，子类也不可访问。</li><li>public：共有权限，类内外都可以访问。</li><li>protected：保护权限，类内可访问，当前类的子类可以访问，类外不可访问。</li></ul>]]></content>
     
     
       
       
     <summary type="html">&lt;h1 id=&quot;封装&quot;&gt;&lt;a href=&quot;#封装&quot; class=&quot;headerlink&quot; title=&quot;封装&quot;&gt;&lt;/a&gt;封装&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;把变量（属性）和函数（操作）合成一个整体，封装在一个类中。&lt;/li&gt;
-&lt;li&gt;对变量和函数进行访问控制。&lt;/li&gt;
-&lt;/ul&gt;
-</summary>
+&lt;li&gt;成员变量和成员函数是分开存储的。&lt;/li&gt;
+&lt;li</summary>
       
     
     
@@ -206,8 +378,15 @@
     <link href="http://isgoudan.top/2021/11/24/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     <id>http://isgoudan.top/2021/11/24/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
     <published>2021-11-24T02:44:21.189Z</published>
-    <updated>2021-11-24T02:44:51.158Z</updated>
+    <updated>2022-01-13T07:49:28.882Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>​        单例模式是一种软件设计模式，在它的核心结构中只包含一个被称为单例的特殊类，单例模式可以保证系统中一个类只有一个实例且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望系统中某个类的对象只能存在一个，用单例模式。</p><h1 id="静态成员实现单例模式"><a href="#静态成员实现单例模式" class="headerlink" title="静态成员实现单例模式"></a>静态成员实现单例模式</h1><ul><li>目的：为了让类中只有一个实例，实例不需要自己释放。</li><li>将默认构造和拷贝构造私有化。</li><li>内部维护一个对象指针。</li><li>私有化唯一指针。</li><li>对外提供getInstance方法来访问这个指针。</li><li>保证类中只能实例化唯一一个对象。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChairMan</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">// 构造函数进行私有化</span></span><br><span class="line">    <span class="built_in">ChairMan</span>() &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;creat ChairMan&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 拷贝构造函数也需要私有化</span></span><br><span class="line">    <span class="built_in">ChairMan</span>(<span class="keyword">const</span> ChairMan&amp;c)&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> ChairMan * singleMan;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 提供get方法访问主席</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> ChairMan* <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singleMan;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ChairMan * ChairMan:;singleMan = <span class="keyword">new</span> ChairMan;  <span class="comment">// 静态变量编译阶段就创建</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ChairMan* cm1 = ChairMan::getInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;main函数调用&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果为：</span></span><br><span class="line"><span class="comment">// creat ChairMan</span></span><br><span class="line"><span class="comment">// main函数调用</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h1&gt;&lt;p&gt;​        单例模式是一种软件设计模式，在它的核心结构中只包含一个被称为单例的特殊类，单例模式可以保证系统中一个类只有</summary>
+      
     
     
     
@@ -225,9 +404,9 @@
     <link href="http://isgoudan.top/2021/11/24/%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/"/>
     <id>http://isgoudan.top/2021/11/24/%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/</id>
     <published>2021-11-24T02:42:58.335Z</published>
-    <updated>2022-01-10T11:52:34.276Z</updated>
+    <updated>2022-01-13T05:40:05.241Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="内联函数的引出–宏函数的缺陷"><a href="#内联函数的引出–宏函数的缺陷" class="headerlink" title="内联函数的引出–宏函数的缺陷"></a>内联函数的引出–宏函数的缺陷</h1><ul><li><p>第一个问题在c中也会出现的，宏看起来像一个函数调用，但是有一些隐藏的难以发现的错误。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MyAdd(int a, int b) a+b</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">MyAdd</span>(a, b) &lt;&lt; endl;  <span class="comment">// 输出30；</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">MyAdd</span>(a, b) * <span class="number">10</span> &lt;&lt; endl;  <span class="comment">// 预期结果300，但是输出210； </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MyCompare(int a, int b) a &gt; b ? a : b</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">10</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">MyCompare</span>(a, b); <span class="comment">// 输出 20；</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">MyCompare</span>(++a, b); <span class="comment">// 预期21，输出22；</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>第二个问题是C++特有的，预处理器不能访问类的成员，所以预处理宏不能用作类的成员函数。</p></li><li><p>宏函数没有作用域。</p></li></ul><h1 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h1><ul><li>内联函数是一个真正的函数。</li><li>内联函数的声明和实现都需要加inline，否则会被认为成普通函数处理。</li><li>内联函数相当于空间换时间。</li><li>类内部的成员函数，默认前面会加inline关键字，即如果函数定义在类内部，自动成为内联函数<font color=blue>（同样受到最后一条的限制）</font>。</li><li>注意即使加了inline也不一定会变成内联函数，以下情况不会变成inline：``<ul><li>不能存在任何形式的循环语句；</li><li>不能存在过多的条件判断语句；</li><li>函数体不能过于庞大；</li><li>不能对函数进行取址操作；</li></ul></li></ul><p><font color=red>内联函数只是相当于给了编译器一个建议，但是编译器不一定会接受。</font></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="内联函数的引出–宏函数的缺陷"><a href="#内联函数的引出–宏函数的缺陷" class="headerlink" title="内联函数的引出–宏函数的缺陷"></a>内联函数的引出–宏函数的缺陷</h1><ul><li><p>第一个问题在c中也会出现的，宏看起来像一个函数调用，但是有一些隐藏的难以发现的错误。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MyAdd(int a, int b) a+b</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">MyAdd</span>(a, b) &lt;&lt; endl;  <span class="comment">// 输出30；</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">MyAdd</span>(a, b) * <span class="number">10</span> &lt;&lt; endl;  <span class="comment">// 预期结果300，但是输出210； </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MyCompare(int a, int b) a &gt; b ? a : b</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">10</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">MyCompare</span>(a, b); <span class="comment">// 输出 20；</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">MyCompare</span>(++a, b); <span class="comment">// 预期21，输出22；</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>第二个问题是C++特有的，预处理器不能访问类的成员，所以预处理宏不能用作类的成员函数。</p></li><li><p>宏函数没有作用域。</p></li></ul><h1 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h1><ul><li>内联函数是一个真正的函数。</li><li>内联函数的声明和实现都需要加inline，否则会被认为成普通函数处理。</li><li>内联函数相当于空间换时间。</li><li>类内部的成员函数，默认前面会加inline关键字，即如果函数定义在类内部，自动成为内联函数<font color=blue>（同样受到最后一条的限制）</font>。</li><li>注意即使加了inline也不一定会变成内联函数，以下情况不会变成inline：<ul><li>不能存在任何形式的循环语句；</li><li>不能存在过多的条件判断语句；</li><li>函数体不能过于庞大；</li><li>不能对函数进行取址操作；</li></ul></li></ul><p><font color=red>内联函数只是相当于给了编译器一个建议，但是编译器不一定会接受。</font></p>]]></content>
     
     
       
@@ -387,166 +566,6 @@
     <category term="multiset" scheme="http://isgoudan.top/tags/multiset/"/>
     
     <category term="multimap" scheme="http://isgoudan.top/tags/multimap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>迭代和递归</title>
-    <link href="http://isgoudan.top/2021/08/13/%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/"/>
-    <id>http://isgoudan.top/2021/08/13/%E8%BF%AD%E4%BB%A3%E5%92%8C%E9%80%92%E5%BD%92/</id>
-    <published>2021-08-13T03:07:47.624Z</published>
-    <updated>2021-08-13T08:47:16.165Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p>​    重复调用函数自身实现循环称为递归。典型问题：斐波那契数列，阶乘（n!）。</p><p>​    构成递归需具备的条件：</p><ol><li>子问题需与原问题为同样的事，且更为简单。</li><li>不能无限制的调用本身，需要有出口。</li></ol><h1 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h1><p>​    迭代法是一种不断用变量的旧值递推新值的过程，典型问题：斐波那契数列，背包问题。</p><h1 id="二者关系与区别"><a href="#二者关系与区别" class="headerlink" title="二者关系与区别"></a>二者关系与区别</h1><p>​    从概念上讲，递归就是指程序调用自身的编程思想，即一个函数调用本身；迭代是利用已知的变量值，根据递推公式不断演进得到新变量值的编程思想。简单的说，递归是重复调用函数自身实现循环。迭代时函数内某段代码实现循环。</p><p>​    迭代与普通循环的区别：迭代时，循环代码中参与运算的变量同时是保存结果的变量，当前保存的结果作为下一次循环计算的初始值。</p><p>​    递归与普通循环的区别：递归是有去无回，而递归是有去有回。</p><p>​    <font color=red>迭代是顺序推导，用临时变量保存结果；递归是逆序推导，用相同函数嵌套调用。</font></p><p>​    </p><p><a href="https://blog.csdn.net/gaoyu1253401563/article/details/82384958?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">参考链接1</a>          <a href="https://blog.csdn.net/qq_40817827/article/details/89950325">参考链接2</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;递归&quot;&gt;&lt;a href=&quot;#递归&quot; class=&quot;headerlink&quot; title=&quot;递归&quot;&gt;&lt;/a&gt;递归&lt;/h1&gt;&lt;p&gt;​    重复调用函数自身实现循环称为递归。典型问题：斐波那契数列，阶乘（n!）。&lt;/p&gt;
-&lt;p&gt;​    构成递归需具备的条件：&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
-    
-    <category term="迭代" scheme="http://isgoudan.top/tags/%E8%BF%AD%E4%BB%A3/"/>
-    
-    <category term="递归" scheme="http://isgoudan.top/tags/%E9%80%92%E5%BD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git权限管理</title>
-    <link href="http://isgoudan.top/2021/07/28/git%E6%9D%83%E9%99%90/"/>
-    <id>http://isgoudan.top/2021/07/28/git%E6%9D%83%E9%99%90/</id>
-    <published>2021-07-28T08:06:06.502Z</published>
-    <updated>2021-07-28T08:08:43.855Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    运行Ardupilot出现permission denied错误解决方案：    git config core.filemode false + chmod</p><h3 id="忽略文件权限"><a href="#忽略文件权限" class="headerlink" title="忽略文件权限"></a>忽略文件权限</h3><p>​    有很多时候我们并不需要过多关注文件权限，特别是部署时会重置文件权限的情况，在开发时由于各环境不同，总是有文件权限的冲突，此时，我们可以忽略文件变更追踪。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.filemode <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>可以禁止 <code>Git</code> 跟踪文件权限。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;​    运行Ardupilot出现permission denied错误解决方案：    git config core.filemode false + chmod&lt;/p&gt;
-&lt;h3 id=&quot;忽略文件权限&quot;&gt;&lt;a href=&quot;#忽略文件权限&quot; class=&quot;headerl</summary>
-      
-    
-    
-    
-    <category term="git" scheme="http://isgoudan.top/categories/git/"/>
-    
-    
-    <category term="git" scheme="http://isgoudan.top/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>内存管理（1）</title>
-    <link href="http://isgoudan.top/2021/07/23/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%881%EF%BC%89/"/>
-    <id>http://isgoudan.top/2021/07/23/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%881%EF%BC%89/</id>
-    <published>2021-07-23T11:18:21.845Z</published>
-    <updated>2021-07-26T13:16:30.681Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="C-memory-primitives"><a href="#C-memory-primitives" class="headerlink" title="C++ memory primitives"></a>C++ memory primitives</h1><table><thead><tr><th>分配</th><th>释放</th><th>类属</th><th>可否重载</th></tr></thead><tbody><tr><td>malloc()</td><td>free()</td><td>C函数</td><td>不可</td></tr><tr><td>new</td><td>delete</td><td>C++表达式（expressions）</td><td>不可</td></tr><tr><td>::operator new()</td><td>::operator delete()</td><td>C++函数</td><td>可</td></tr><tr><td>allocator<T>:: allocate()</td><td>allocator<T>:: deallocate()</td><td>C++标准库</td><td>可自由设计并搭配任何容器</td></tr></tbody></table><p>各用法如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* malloc() and free() */</span></span><br><span class="line"><span class="keyword">void</span>* p1 = <span class="built_in">malloc</span>(<span class="number">512</span>);  <span class="comment">// 分配512个bytes</span></span><br><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* new and delete expression */</span></span><br><span class="line">complex&lt;<span class="keyword">int</span>&gt;* p2 = <span class="keyword">new</span> complex&lt;<span class="keyword">int</span>&gt;; <span class="comment">// one object;</span></span><br><span class="line"><span class="keyword">delete</span> p2;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* array new, array delete */</span></span><br><span class="line">Complex* pca = <span class="keyword">new</span> Complex[<span class="number">3</span>];  <span class="comment">// 这里的Complex为自己定义的；</span></span><br><span class="line"><span class="comment">// 调用三次ctor</span></span><br><span class="line"><span class="keyword">delete</span>[] pca;  <span class="comment">// 如果不加[]会导致内存泄漏</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* ::operator new() and ::operator delete() */</span></span><br><span class="line"><span class="keyword">void</span>* p3 = ::<span class="keyword">operator</span> <span class="built_in"><span class="keyword">new</span></span>(<span class="number">512</span>); <span class="comment">// 512 bytes</span></span><br><span class="line">::<span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(p3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* allocator&lt;T&gt;:: allocate() and allocator&lt;T&gt;:: deallocate() */</span></span><br><span class="line"><span class="comment">// 以下是使用c++标准库提供的allocators</span></span><br><span class="line"><span class="comment">// 不同三家的形式如下 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _MSC_VER</span></span><br><span class="line"><span class="comment">// 以下两函数都是non-static的，需要通过object调用。以下分配3个int</span></span><br><span class="line"><span class="keyword">int</span>* p4 = allocator&lt;<span class="keyword">int</span>&gt;().<span class="built_in">allocate</span>(<span class="number">3</span>, (<span class="keyword">int</span>*)<span class="number">0</span>)； <span class="comment">// 其中(int*)0 目前无用</span></span><br><span class="line">allocator&lt;<span class="keyword">int</span>&gt;().<span class="built_in">deallocate</span>(p4, <span class="number">3</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _BORLANDC_</span></span><br><span class="line"><span class="comment">// 以下两函数都是non-static的，需要通过object调用。以下分配5个int</span></span><br><span class="line"><span class="keyword">void</span>* p4 = allocator&lt;<span class="keyword">int</span>&gt;().<span class="built_in">allocate</span>(<span class="number">5</span>);</span><br><span class="line">allocator&lt;<span class="keyword">int</span>&gt;().deallocate&lt;p4, <span class="number">5</span>&gt;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _GNUC_</span></span><br><span class="line"><span class="comment">// 此为GNUC早期版本 </span></span><br><span class="line"><span class="comment">// 以下两函数都是static的，可通过全名调用。以下分配512 bytes</span></span><br><span class="line"><span class="keyword">void</span>* p4 = alloc::<span class="built_in">allocate</span>(<span class="number">512</span>);</span><br><span class="line">alloc::<span class="built_in">deallocate</span>(p4, <span class="number">512</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _GNUC_</span></span><br><span class="line"><span class="comment">// 新版GNUC</span></span><br><span class="line"><span class="comment">// 以下两函数都是non-static的，需要通过object调用。以下分配7个int</span></span><br><span class="line"><span class="keyword">void</span>* p4 = allocator&lt;<span class="keyword">int</span>&gt;().<span class="built_in">allocate</span>(<span class="number">7</span>);</span><br><span class="line">allocator&lt;<span class="keyword">int</span>&gt;().<span class="built_in">deallocate</span>((<span class="keyword">int</span>*)p4, <span class="number">7</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下两函数都是non-static的，需要通过object调用。一下分配9个int</span></span><br><span class="line"><span class="keyword">void</span>* p5 = _gnu_cxx::_pool_alloc&lt;<span class="keyword">int</span>&gt;().<span class="built_in">allocate</span>(<span class="number">9</span>);</span><br><span class="line">_gnu_cxx::_pool_alloc&lt;<span class="keyword">int</span>&gt;().<span class="built_in">deallocate</span>((<span class="keyword">int</span>*)p5, <span class="number">9</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure><h2 id="array-new-和-array-delete"><a href="#array-new-和-array-delete" class="headerlink" title="array new 和 array delete"></a>array new 和 array delete</h2><p><img src="https://i.loli.net/2021/07/26/xYs3LaVISlkdFDz.png" alt="image.png"></p><p>​    其中cookie会保存申请的内存的长度等信息，如果delete不加[] 会使得只释放第一或者最后一个内存块，导致内存泄漏。</p><p>​    在使用array new的时候并不能对对象进行想要的初始化，解决方法是使用palcement new。</p><p>Eg：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">A</span>() : <span class="built_in">id</span>(<span class="number">0</span>) &#123; cout&lt;&lt;<span class="string">&quot;default ctor.this=&quot;</span>&lt;&lt;<span class="keyword">this</span>&lt;&lt;<span class="string">&quot; id:&quot;</span>&lt;&lt;id&lt;&lt;endl; &#125;</span><br><span class="line">    <span class="built_in">A</span>(<span class="keyword">int</span> i) : <span class="built_in">id</span>(i) &#123; cout&lt;&lt;<span class="string">&quot;ctor.this=&quot;</span>&lt;&lt;<span class="keyword">this</span>&lt;&lt;<span class="string">&quot; id:&quot;</span>&lt;&lt;id&lt;&lt;endl; &#125;</span><br><span class="line">    ~<span class="built_in">A</span>()             &#123; cout&lt;&lt;<span class="string">&quot;dtor.this=&quot;</span>&lt;&lt;<span class="keyword">this</span>&lt;&lt;<span class="string">&quot; id:&quot;</span>&lt;&lt;id&lt;&lt;endl; &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    A* buf = <span class="keyword">new</span> A[<span class="number">3</span>];  <span class="comment">// 调用三次default ctor；</span></span><br><span class="line">    A* tmp = buf;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;buf = &quot;</span>&lt;&lt;buf&lt;&lt;<span class="string">&quot; tmp = &quot;</span>&lt;&lt;tmp&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">new</span>(tmp++)<span class="built_in">A</span>(i);  <span class="comment">// ctor 3次</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;buf = &quot;</span>&lt;&lt;buf&lt;&lt;<span class="string">&quot; tmp = &quot;</span>&lt;&lt;tmp&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">delete</span>[] buf;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：</p><p><img src="https://i.loli.net/2021/07/26/bhSITMqziPGuERa.png" alt="image.png"></p><p>​    ctor的顺序和dtor顺序正好相反。</p><h2 id="new-expression-和-delete-expression"><a href="#new-expression-和-delete-expression" class="headerlink" title="new expression 和 delete expression:"></a>new expression 和 delete expression:</h2><h3 id="new-expression"><a href="#new-expression" class="headerlink" title="new expression"></a>new expression</h3> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Complex* pc =  <span class="keyword">new</span> <span class="built_in">Complex</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure><p>编译器将其转换为：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Complex *pc;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="keyword">void</span>* mem = <span class="keyword">operator</span> <span class="built_in"><span class="keyword">new</span></span>(<span class="built_in"><span class="keyword">sizeof</span></span>(Complex));<span class="comment">//allocate</span></span><br><span class="line">    pc = <span class="keyword">static_cast</span>&lt;Complex*&gt;(mem);               <span class="comment">// cast</span></span><br><span class="line">    pc-&gt;Complex::<span class="built_in">Complex</span>(<span class="number">1</span>, <span class="number">2</span>);                    <span class="comment">// construct</span></span><br><span class="line">    <span class="comment">// 只有编译器可以像上一行一样直接呼叫ctor；</span></span><br><span class="line">  <span class="comment">// 我们想直接调用构造函数可使用 placement new：   new(p)Complex(1, 2);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in"><span class="keyword">catch</span></span>(std::bad_alloc) &#123;</span><br><span class="line">    <span class="comment">// 若allocation失败就不执行 constructor</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="delete-expression"><a href="#delete-expression" class="headerlink" title="delete expression"></a>delete expression</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Complex* pc = <span class="keyword">new</span> <span class="built_in">Complex</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> pc;</span><br></pre></td></tr></table></figure><p>编译器转换为：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pc-&gt;~<span class="built_in">Complex</span>();        <span class="comment">// 先析构</span></span><br><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(pc)</span></span>;   <span class="comment">// 然后释放内存</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;C-memory-primitives&quot;&gt;&lt;a href=&quot;#C-memory-primitives&quot; class=&quot;headerlink&quot; title=&quot;C++ memory primitives&quot;&gt;&lt;/a&gt;C++ memory primitives&lt;/h1&gt;&lt;</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
-    
-    <category term="内存" scheme="http://isgoudan.top/tags/%E5%86%85%E5%AD%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>右值引用</title>
-    <link href="http://isgoudan.top/2021/07/23/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/"/>
-    <id>http://isgoudan.top/2021/07/23/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/</id>
-    <published>2021-07-23T07:32:38.549Z</published>
-    <updated>2021-07-26T12:06:02.398Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h1><p>​    右值引用是为了支持移动操作，所谓右值引用就是必须绑定到右值的引用，右值引用只能绑定到一个将要销毁的对象，把即将销毁对象的内存、值等全都 “ 拿 ” 过来。</p><p>​    右值引用只能绑定右值。</p><p>Eg：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> &amp;&amp;rr1 = <span class="number">42</span>;  <span class="comment">// 正确，字面值是右值</span></span><br><span class="line"><span class="keyword">int</span> &amp;&amp;rr2 = rr1; <span class="comment">// 错误，表达式rr1是左值，变量是左值，即使这个变量是右值引用类型也不行</span></span><br><span class="line"><span class="keyword">int</span> &amp;&amp;rr3 = std::<span class="built_in">move</span>(rr1); <span class="comment">// ok  ,move 将左值显式转换成右值行是，但这就意味着调用move后，除了对rr1进行赋值或者销毁外，我们将不再使用它。</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;右值引用&quot;&gt;&lt;a href=&quot;#右值引用&quot; class=&quot;headerlink&quot; title=&quot;右值引用&quot;&gt;&lt;/a&gt;右值引用&lt;/h1&gt;&lt;p&gt;​    右值引用是为了支持移动操作，所谓右值引用就是必须绑定到右值的引用，右值引用只能绑定到一个将要销毁的对象，把即将销毁</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
-    
-    <category term="右值引用" scheme="http://isgoudan.top/tags/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++程序编译过程</title>
-    <link href="http://isgoudan.top/2021/07/21/C++%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/"/>
-    <id>http://isgoudan.top/2021/07/21/C++%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/</id>
-    <published>2021-07-21T07:28:16.000Z</published>
-    <updated>2021-07-26T13:37:53.203Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="C-程序的编译过程（源码如何转化成二进制）"><a href="#C-程序的编译过程（源码如何转化成二进制）" class="headerlink" title="C++程序的编译过程（源码如何转化成二进制）"></a>C++程序的编译过程（源码如何转化成二进制）</h1><h2 id="编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接"><a href="#编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接" class="headerlink" title="编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接"></a>编译过程分为四个步骤：编译（编译预处理、编译、优化），汇编，链接</h2><ul><li>编译预处理：处理以 # 开头的指令。</li><li>编译、优化：将源码 .cpp 文件翻译成 .s 汇编代码。</li><li>汇编：将汇编代码 .s 翻译成机器指令 .o 文件。</li><li>链接：汇编程序生成的目标文件不会立即执行，可能有源文件中的函数引用了另一个源文件中定义的符号或者调用了某个库文件中的函数。链接的目的就是将这些目标文件连接成一个整体，生成一个可执行的.exe文件。</li></ul><p><img src="https://i.loli.net/2021/07/26/OS5yPWYLGnDjk9r.png" alt="编译过程"></p><h2 id="链接分为两种：静态和动态"><a href="#链接分为两种：静态和动态" class="headerlink" title="链接分为两种：静态和动态"></a>链接分为两种：静态和动态</h2><ul><li>静态链接：代码从其所在的动态链接库中拷贝到最终的可执行程序中，在该程序被执行时，这些代码会被装入到该进程的虚拟地址空间中。</li><li>动态链接：代码被放到动态链接库或共享对象的某个目标文件中，链接程序只是在最终的可执行程序中记录了共享对象的名字等一些信息。在程序执行时，动态链接库的全部内容会被映射到运行时相应进行的虚拟地址的空间。</li></ul><h2 id="二者优缺点"><a href="#二者优缺点" class="headerlink" title="二者优缺点"></a>二者优缺点</h2><ul><li>静态链接：<strong>浪费空间</strong>，每个可执行程序都会有目标文件的一个副本，这样如果目标文件进行了更新操作，就需要重新进行编译链接生成可执行程序（<strong>更新困难</strong>）；优点就是执行的时候运行速度快，因为可执行程序具备了程序运行的所有内容。</li><li>动态链接：节省内存、更新方便，但是动态链接是在程序运行时，每次执行任务都需要进行链接，性能会有一定的损失。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;C-程序的编译过程（源码如何转化成二进制）&quot;&gt;&lt;a href=&quot;#C-程序的编译过程（源码如何转化成二进制）&quot; class=&quot;headerlink&quot; title=&quot;C++程序的编译过程（源码如何转化成二进制）&quot;&gt;&lt;/a&gt;C++程序的编译过程（源码如何转化成二进制）</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
-    
-    <category term="编译" scheme="http://isgoudan.top/tags/%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C、C++区别</title>
-    <link href="http://isgoudan.top/2021/05/31/C%E3%80%81C++/"/>
-    <id>http://isgoudan.top/2021/05/31/C%E3%80%81C++/</id>
-    <published>2021-05-31T07:43:37.000Z</published>
-    <updated>2021-12-20T08:41:48.142Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="C和C-区别"><a href="#C和C-区别" class="headerlink" title="C和C++区别"></a>C和C++区别</h1><ul><li>C是面向用户的编程，特点是函数；C++是面向对象的编程，特点是类。<font color=blue>（特性）</font>    </li><li>C主要应用于嵌入式开发、驱动开发和硬件直接打交道的领域；C++可以应用于应用层的开发、用户界面开发等和操作系统直接打交道的领域。<font color=blue>（应用领域 ）</font></li><li>C++继承了C的底层操作特性，增加了面向对象的机制，增加而泛型编程 、异常处理、运算符重载，还增加了命名空间，避免了命名冲突。<font color=blue>（相较于C的升级）</font>    </li></ul><h1 id="C-相较于C的增强"><a href="#C-相较于C的增强" class="headerlink" title="C++相较于C的增强"></a>C++相较于C的增强</h1><ul><li>全局变量检测增强。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;  <span class="comment">// 在c语言中不会出现问题，在c++中会报错</span></span><br></pre></td></tr></table></figure><ul><li>函数的检测增强，参数类型增强，函数返回值检测增强，函数调用的参数检测异常。</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getRectS</span><span class="params">(w, h)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125; <span class="comment">// 在c语言中没问题，但是在c++中报错，需要增加返回值以及参数类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> test01（） &#123;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">getRectS</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>)&lt;&lt;endl; <span class="comment">// c语言没问题，但是c++中只能传递两个参数，会报错</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>类型转换检测增强</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span>* p = <span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="number">64</span>)); <span class="comment">// malloc返回值是void*，在c语言中可以运行，c++不可</span></span><br><span class="line">    <span class="keyword">char</span>* p = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="number">64</span>)); <span class="comment">// 才可以</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>struct增强</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">int</span> m_Age;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">plusAge</span><span class="params">()</span></span>; <span class="comment">// c语言中不可以加函数，在c中报错，c++可以</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test04</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Person</span> <span class="title">p1</span>;</span> <span class="comment">// 在创建对象的时候c语言必须加struct关键字，c++不用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>bool类型的增强，c语言中没有bool类型，c++有， sizeof(bool) = 1，bool类型的非零值都会转换为1</li><li>三目运算符增强，c++返回的是变量，c语言返回的是值</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test05</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">    （a &gt; b ? a : b） = <span class="number">100</span>;  <span class="comment">// 在c语言中编译不通过，但是在c++通过，因为在c++中这行代码左边返回的是b，即b = 100，而c语言返回的是20；</span></span><br><span class="line">    cout&lt;&lt;b; <span class="comment">// 输出100；</span></span><br><span class="line">    <span class="comment">// c语言如果想实现相同的效果</span></span><br><span class="line">    *(a &gt; b ? &amp;a : &amp;b) = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>const增强，c++中不会给const分配空间，而是将m_B存入符号表中，在c中const默认为外部链接，c++中const默认为内部链接只能在当前作用域使用，要想在外部使用在定义时加extern关键字    </li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> m_A = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test06</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    m_A = <span class="number">100</span>;  <span class="comment">// 全局的const不管c还是c++都不能修改，报错</span></span><br><span class="line">    <span class="keyword">const</span> m_B = <span class="number">10</span>; <span class="comment">// 在c中可以通过指针将m_B（伪常量）修改，不能初始化数组，c++中不管以什么方式都不能修改，可以初始化数组，因为没有分配内存，只有分配内存的才可以通过指针进行修改，例子见下面代码</span></span><br><span class="line">    <span class="keyword">int</span> *p = (<span class="keyword">int</span>*)&amp;m_B;</span><br><span class="line">    *p = <span class="number">200</span>;</span><br><span class="line">    <span class="comment">// 在c中上面两行代码相当于做了如下操作：</span></span><br><span class="line">    <span class="comment">// int tmp = m_B;   编译器临时开辟一块空间</span></span><br><span class="line">    <span class="comment">// int *p = (int*)&amp;tmp;</span></span><br><span class="line">    <span class="comment">// *p = 200；</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *p &lt;&lt; <span class="string">&quot;    &quot;</span> &lt;&lt; m_B &lt;&lt; <span class="built_in">endl</span>;  <span class="comment">// 输出200  10； </span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><p>const分配内存</p><ul><li>const在取地址得时候会分配临时内存</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> m_A = <span class="number">10</span>;  <span class="comment">// 不分配内存</span></span><br><span class="line"><span class="keyword">int</span> *p = (<span class="keyword">int</span>*) &amp;m_A; <span class="comment">// 分配临时内存</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>extern编译器也会给const变量分配内存</li><li>用变量初始化const变量会分配内存</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> b = a;  <span class="comment">// 会分配内存；</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * p =(<span class="keyword">int</span>*) &amp;b;</span><br><span class="line">*p = <span class="number">1000</span>;   <span class="comment">// 这里的b得值会被改成1000；  只有分配了内存才能通过指针对其进行修改</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>自定义数据类型加const也会分配内存</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span> &#123;</span></span><br><span class="line">string m_Name;</span><br><span class="line"><span class="keyword">int</span> m_Age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test03</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">const</span> Person p1;</span><br><span class="line"><span class="comment">// p1.m_Name = &quot;AAA&quot;;  // 报错，const变量不能直接修改，但是因为分配了内存，可以通过指针进行修改</span></span><br><span class="line">Person *p = (Person*)&amp;p1;</span><br><span class="line">p-&gt;m_Name = <span class="string">&quot;asd&quot;</span>;</span><br><span class="line">(*p).m_Age = <span class="number">19</span>;  <span class="comment">// 可以修改</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>引用是c++对c的重要扩充，引用就是取别名</p><ul><li>基本语法： Type &amp;别名 = 原名</li><li>引用必须初始化，初始化后不可再改为别人的别名</li><li>对数组建立引用</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>];</span><br><span class="line"><span class="built_in"><span class="keyword">int</span></span>(&amp;pArr)[<span class="number">10</span>] = arr; <span class="comment">// 方法一</span></span><br><span class="line">    <span class="function"><span class="keyword">typedef</span> <span class="title">int</span><span class="params">(ARRAYREF)</span>[10]</span>;</span><br><span class="line">    ARRAYREF &amp;pArr2 = arr; <span class="comment">// 方法二</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;C和C-区别&quot;&gt;&lt;a href=&quot;#C和C-区别&quot; class=&quot;headerlink&quot; title=&quot;C和C++区别&quot;&gt;&lt;/a&gt;C和C++区别&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;C是面向用户的编程，特点是函数；C++是面向对象的编程，特点是类。&lt;font color=b</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/categories/C/"/>
-    
-    
-    <category term="C++" scheme="http://isgoudan.top/tags/C/"/>
-    
-    <category term="C" scheme="http://isgoudan.top/tags/C/"/>
     
   </entry>
   
