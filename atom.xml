@@ -6,7 +6,7 @@
   <link href="http://isgoudan.top/atom.xml" rel="self"/>
   
   <link href="http://isgoudan.top/"/>
-  <updated>2022-03-04T05:45:19.328Z</updated>
+  <updated>2022-03-09T02:24:12.842Z</updated>
   <id>http://isgoudan.top/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>C++面试知识点</title>
+    <title>OS小知识点</title>
     <link href="http://isgoudan.top/2022/03/04/OS%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>http://isgoudan.top/2022/03/04/OS%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
     <published>2022-03-04T05:30:27.536Z</published>
-    <updated>2022-03-04T05:45:19.328Z</updated>
+    <updated>2022-03-09T02:24:12.842Z</updated>
     
     <content type="html"><![CDATA[<h1 id="MMU（内存管理单元）"><a href="#MMU（内存管理单元）" class="headerlink" title="MMU（内存管理单元）"></a>MMU（内存管理单元）</h1><p><img src="https://s2.loli.net/2022/03/04/1L35G4UghYlkuc8.png" alt="QQ截图20220304133224.png"></p><p><img src="https://s2.loli.net/2022/03/04/Pg6hLpMdvDy9Bzu.png" alt="MMU.png"></p><p>MMU作用：</p><ul><li>虚拟内存与物理内存映射。</li><li>设置修改内存访问级别。</li></ul>]]></content>
     
