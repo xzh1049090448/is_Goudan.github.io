@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>C++内存模型</title>
+      <link href="2022/08/22/C++%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"/>
+      <url>2022/08/22/C++%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="C-库提供的内存模型"><a href="#C-库提供的内存模型" class="headerlink" title="C++库提供的内存模型"></a>C++库提供的内存模型</h1><p>&emsp;&emsp;用于在多线程的情况下防止编译器的乱序执行。</p><h2 id="顺序一致性模型"><a href="#顺序一致性模型" class="headerlink" title="顺序一致性模型"></a>顺序一致性模型</h2><ul><li>仅保证单一线程内程序执行顺序，不同线程之间仍是交替执行。</li><li>memory_order_seq_cst </li></ul><h2 id="Acquire-Release模型"><a href="#Acquire-Release模型" class="headerlink" title="Acquire-Release模型"></a>Acquire-Release模型</h2><ul><li>memory_order_acquire：修饰读操作，在本线程中，所有后续内存操作必须在本条原子操作后，用与获取资源。</li><li>memory_order_release：修饰写操作，在本线程中，所有之前内存操作必须都执行完才执行本条原子操作。</li><li>memory_order_acq_rel</li></ul><h2 id="Release-Consume模型"><a href="#Release-Consume模型" class="headerlink" title="Release-Consume模型"></a>Release-Consume模型</h2><ul><li>memory_order_consume：仅保证关联变量的顺序。</li></ul><h2 id="Relaxed松弛模型"><a href="#Relaxed松弛模型" class="headerlink" title="Relaxed松弛模型"></a>Relaxed松弛模型</h2><ul><li>memory_order_relaxed：只保证自身原子操作。</li></ul><p><font color=red>内存屏障：由于有cache，很多操作不用写到内存就可以继续后续操作，内存屏障就是为了所有内存屏障前的操作都要写入到内存中，其实就是显式在程序的一些执行点上保证顺序一致性。</font></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 内存模型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MyMuduo源码剖析</title>
       <link href="2022/05/30/MyMuduo%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/"/>
       <url>2022/05/30/MyMuduo%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/</url>
@@ -1429,7 +1456,7 @@
             
             <tag> C++ </tag>
             
-            <tag> 内存 </tag>
+            <tag> 内存分区 </tag>
             
             <tag> 堆 </tag>
             
